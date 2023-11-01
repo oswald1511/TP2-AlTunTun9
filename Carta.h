@@ -1,8 +1,7 @@
 #ifndef CARTA_H_
 #define CARTA_H_
 
-#include <iostream>
-using namespace std;
+#include <string>
 
 enum nombreCarta {BLINDAJE, RADAR, PARTIR, CARTA4, CARTA5, CARTA6};
 
@@ -12,22 +11,28 @@ private:
 public:
 
 	/*
-	 * pre:
-	 * pos:crea una objeto tipo carta
+	 * pre: -
+	 * post: wcrea una carta de tipo aleatorio
 	 */
-	Carta(string tipoCarta);
+	Carta();
 
 	/*
-	 * pre:que exista
-	 * pos:
+	 * pre:
+	 * post: crea una carta segun el tipo indicado
+	 */
+	Carta(std::string tipoCarta);
+
+	/*
+	 * pre:
+	 * post:
 	 */
 	virtual ~Carta();
 
 	/*
-	 * pre:que exista la carta
-	 * pos:le da al jugador una carta
+	 * pre: -
+	 * post: se juega la carta segun el tipo de carta que sea
 	 */
-	void jugarCarta(string tipoCarta);
+	void jugarCarta(std::string tipoCarta);
 };
 
 #endif /* CARTA_H_ */
