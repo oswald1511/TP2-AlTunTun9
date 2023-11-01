@@ -1,6 +1,8 @@
 #ifndef TESOROMINA_H_
 #define TESOROMINA_H_
 
+#include <Vector.h>
+
 class TesoroMina {
 private:
 	Vector<int> * posicion;

@@ -1,6 +1,8 @@
 #ifndef TESORO_H_
 #define TESORO_H_
 
+#include "Vector.h"
+
 class Tesoro {
 private:
 	Vector<int> * posicion;

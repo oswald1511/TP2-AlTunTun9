@@ -1,8 +1,14 @@
 #ifndef JUGADOR_H_
 #define JUGADOR_H_
+
+#include <iostream>
 #include "Lista.h"
 #include "Tesoro.h"
 #include "Carta.h"
+#include "Vector.h"
+
+using namespace std;
+
 
 class Jugador {
 private:
