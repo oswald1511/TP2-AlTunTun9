@@ -32,6 +32,12 @@ public:
 	 */
 	int pedirCantidadTesoros();
 
+	/*
+		 * pre: -
+		 * post: deja la terminal de consolo en blanco
+		 */
+	void limpiarPantalla();
+
 };
 
 #endif /* CONSOLA_H_ */
