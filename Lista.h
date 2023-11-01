@@ -35,7 +35,7 @@ public:
      * post: Lista que tiene los mismos elementos que otraLista.
      *       La instancia resulta en una copia de otraLista.
      */
-    Lista(Lista<T>& otraLista);
+    Lista(Lista<T> * otraLista);
 
     /*
      * post: indica si la Lista tiene algún elemento.
@@ -70,7 +70,7 @@ public:
      * post: agrega todos los elementos de otraLista
      *       a partir de la posición contarElementos() + 1.
      */
-    void agregar(Lista<T> &otraLista);
+    void agregar(Lista<T> * otraLista);
 
     /*
      * pre : posición pertenece al intervalo: [1, contarElementos()]
@@ -143,7 +143,7 @@ template<class T> Lista<T>::Lista() {
     this->cursor = NULL;
 }
 
-template<class T> Lista<T>::Lista(Lista<T>& otraLista) {
+template<class T> Lista<T>::Lista(Lista<T> * otraLista) {
 
     this->primero = NULL;
     this->tamanio = 0;
@@ -195,11 +195,11 @@ template<class T> void Lista<T>::agregar(T elemento, unsigned int posicion) {
 
 }
 
-template<class T> void Lista<T>::agregar(Lista<T> &otraLista) {
+template<class T> void Lista<T>::agregar(Lista<T> * otraLista) {
 
-    otraLista.iniciarCursor();
-    while (otraLista.avanzarCursor()) {
-        this->agregar(otraLista.obtenerCursor());
+    otraLista->iniciarCursor();
+    while (otraLista->avanzarCursor()) {
+        this->agregar(otraLista->obtenerCursor());
     }
 }
 
