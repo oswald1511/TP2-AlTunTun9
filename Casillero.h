@@ -6,13 +6,49 @@ class Casillero {
 private:
 	char ficha;
 	Vector<int> * posicion;
+
 public:
-	Casillero(int x, int y, int z);
+
+	/*
+	 * pre: recibe el vector de la posicion en la que se encontrara el casillero
+	 * post: crea el casillero en la posicion indicada
+	 */
+	Casillero(Vector<int> * posicion);
+
+	/*
+	 * pre: -
+	 * post: elimina el casillero creado
+	 */
 	virtual ~Casillero();
+
+	/*
+	 * pre: -
+	 * post: devuelve la posicion del casillero
+	 */
 	Vector<int> * getPosicion();
+
+	/*
+	 * pre: -
+	 * post: deshabilita la casilla por X turnos
+	 */
 	void deshabilitar();
+
+	/*
+	 * pre: -
+	 * post: habilita la casilla
+	 */
 	void habilitar();
-	void setficha(char ficha);
+
+	/*
+	 * pre: recibe el char ficha a setear
+	 * post: estalece el valor de la ficha
+	 */
+	void setFicha(char ficha);
+
+	/*
+	 * pre: -
+	 * post: devuelve el valor de la ficha
+	 */
 	char getFicha();
 };
 

@@ -7,14 +7,40 @@
 class Tablero {
 private:
 	Lista<Lista<Lista<Casillero *>*>*>* tablero;
-	int x;
-	int y;
-	int z;
+	Vector<int>* dimensiones;
 
 public:
-	Tablero(int x, int y, int z);
+
+	/*
+	 * pre: recibe el vector dimensiones de tablero
+	 * post: crea el tablero (lista de lista de lista de casilleros) con las dimensiones indicadas
+	 */
+	Tablero(Vector<int>* dimensiones);
+
+	/*
+	 * pre: -
+	 * post: elimina toda la memoria de las listas creadas y finalmente el tablero entero
+	 */
 	virtual ~Tablero();
+
+	/*
+	 * pre: recibe el vector posicion dentro de los limites del tablero
+	 * post: devuelve el puntero a casillero en la posicion indicada
+	 */
 	Casillero * getCasillero(Vector<int> * posicion);
+
+	/*
+	 * pre: recibe la posicion dentro de los limites del tablero y la ficha a establecer
+	 * post: establece la ficha en el casillero en la posicion indicada
+	 */
+	void setCasillero(Vector<int> * posicion, char ficha);
+
+	/*
+	 * pre: recibe la posicion dentro de los limites del tablero
+	 * post: devuelve la ficha en el casillero de la posicion indicada
+	 */
+	char getFicha(Vector<int> * posicion);
+
 };
 
 #endif /* TABLERO_H_ */
