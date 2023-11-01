@@ -1,11 +1,8 @@
 #include "Consola.h"
 
-Consola::Consola(){
+Consola::Consola(){}
 
-}
-
-Consola::~Consola(){
-}
+Consola::~Consola(){}
 
 Vector<int>* Consola::pedirTamanioTablero(){
 
@@ -26,9 +23,18 @@ Vector<int>* Consola::pedirTamanioTablero(){
 
 
 	Vector<int>* Consola::pedirPosicion(){
-
-		//ni idea de que hacer aca
-
+		Vector<int>* posicion = new Vector<int>(3);
+			int x, y, z;
+			std::cout << "Ingrese posicion X: ";
+			std::cin >> x;
+			std::cout << "Ingrese posicion Y: ";
+			std::cin >> y;
+			std::cout << "Ingrese posicion Z: ";
+			std::cin >> z;
+			posicion->set(1, x);
+			posicion->set(2, y);
+			posicion->set(3, z);
+			return posicion;
 	}
 
 
