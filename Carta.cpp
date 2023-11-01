@@ -4,8 +4,7 @@ Carta::Carta(string tipoCarta){
 
 }
 
-Carta::~Carta() {
-
+Carta::~Carta(){
 }
 
 void Carta::jugarCarta(string tipoCarta){

@@ -6,6 +6,7 @@
 class Consola {
 public:
 	Consola();
+
 	virtual ~Consola();
 
 	/*
@@ -33,10 +34,22 @@ public:
 	int pedirCantidadTesoros();
 
 	/*
-		 * pre: -
-		 * post: deja la terminal de consolo en blanco
-		 */
+	* pre: -
+	* post: deja la terminal de consolo en blanco
+	*/
 	void limpiarPantalla();
+
+	/*
+	 * pre:-
+	 * pos:le da la bienvenida a los usuarios al juego
+	 */
+	void bienvenida();
+
+	/*
+	 * pre:que exista el tablero
+	 * pos:imprime el tablero seleccionado por la consola
+	 */
+	void imprimirTablero();
 
 };
 

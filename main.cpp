@@ -1,8 +1,10 @@
 #include <iostream>
+#include "Consola.h"
 
 int main(){
 
-	std::cout << "hola mundo, esto sirve?";
+	Consola locutor;
+	locutor.bienvenida();
 
 	return 0;
 }
