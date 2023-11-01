@@ -1,6 +1,6 @@
 #include "Mazo.h"
 
-Mazo::Mazo() {
+Mazo::Mazo(int cantidadCartas) {
 	// TODO Auto-generated constructor stub
 
 }

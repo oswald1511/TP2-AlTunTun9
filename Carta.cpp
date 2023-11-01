@@ -1,11 +1,14 @@
 #include "Carta.h"
 
-Carta::Carta() {
-	// TODO Auto-generated constructor stub
+Carta::Carta(string tipoCarta){
 
 }
 
 Carta::~Carta() {
-	// TODO Auto-generated destructor stub
+
+}
+
+void Carta::jugarCarta(string tipoCarta){
+
 }
 

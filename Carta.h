@@ -10,8 +10,23 @@ class Carta {
 private:
 	nombreCarta tipoCarta;
 public:
+
+	/*
+	 * pre:
+	 * pos:crea una objeto tipo carta
+	 */
 	Carta(string tipoCarta);
+
+	/*
+	 * pre:que exista
+	 * pos:
+	 */
 	virtual ~Carta();
+
+	/*
+	 * pre:que exista la carta
+	 * pos:le da al jugador una carta
+	 */
 	void jugarCarta(string tipoCarta);
 };
 

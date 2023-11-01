@@ -1,6 +1,6 @@
 #include "Tesoro.h"
 
-Tesoro::Tesoro() {
+Tesoro::Tesoro(int x, int y, int z){
 	// TODO Auto-generated constructor stub
 
 }

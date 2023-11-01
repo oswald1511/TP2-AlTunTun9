@@ -63,7 +63,7 @@ template <class T> Vector<T>::Vector(unsigned int longitud){
 	}
 }
 
-template <class T> virtual Vector<T>:: ~Vector(){
+template <class T> Vector<T>:: ~Vector(){
 	delete [] this->valores;
 	}
 

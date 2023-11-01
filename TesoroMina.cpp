@@ -1,7 +1,6 @@
 #include "TesoroMina.h"
 
-TesoroMina::TesoroMina() {
-	// TODO Auto-generated constructor stub
+TesoroMina::TesoroMina(int x, int y, int z){
 
 }
 

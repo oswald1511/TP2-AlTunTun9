@@ -1,52 +1,63 @@
 #ifndef NODO_H_
 #define NODO_H_
 
-#ifndef NULL
-#define NULL 0
-#endif /* NULL */
+#include <cstddef>
 
-template<class T> class Nodo{
+template<class T> class Nodo {
+
 private:
-	T dato;
-	Nodo<T>* siguiente;
+
+    T dato;
+    Nodo<T>* siguiente;
+
 public:
-	Nodo(T valor);
-	bool haySiguiente();
-	Nodo<T>* getSiguiente();
-	void setSiguiente(Nodo<T>* nuevoSig);
-	T getValor();
-	void setValor(T nuevoValor);
-	~Nodo();
+
+    /*
+     * pre: recibe un dato de tipo T
+     * post: el Nodo resulta inicializado con el dato dado
+     *       y sin un Nodo siguiente.
+     */
+    Nodo(T dato) {
+
+        this->dato = dato;
+        this->siguiente = NULL;
+    }
+
+    /*
+     * pre: -
+     * post: devuelve el valor del dato.
+     */
+    T obtenerDato() {
+
+        return this->dato;
+    }
+
+    /*
+     * pre: -
+     * post: cambia el valor del dato.
+     */
+    void cambiarDato(T nuevoDato) {
+
+        this->dato = nuevoDato;
+    }
+
+    /*
+     * pre: -
+     * post: devuelve el siguiente Nodo.
+     */
+    Nodo<T>* obtenerSiguiente() {
+
+        return this->siguiente;
+    }
+
+    /*
+     * pre: recibe un puntero a nodo
+     * post: cambia el siguiente Nodo por nuevoSiguiente.
+     */
+    void cambiarSiguiente(Nodo<T>* nuevoSiguiente) {
+
+        this->siguiente = nuevoSiguiente;
+    }
 };
-
-
-template<class T> Nodo<T>::Nodo(T valor){
-	this->dato = valor;
-	this->siguiente = NULL;
-}
-
-template<class T> bool Nodo<T>::haySiguiente(){
-	return (this->siguiente != NULL);
-}
-
-template<class T> Nodo<T>* Nodo<T>::getSiguiente(){
-	return (this->siguiente);
-}
-
-template<class T> void Nodo<T>::setSiguiente(Nodo<T>* nuevoSig){
-	this->siguiente = nuevoSig;
-}
-
-template<class T> T Nodo<T>::getValor(){
-	return (this->dato);
-}
-
-template<class T> void Nodo<T>::setValor(T nuevoValor){
-	this->dato = nuevoValor;
-}
-
-template<class T> Nodo<T>::~Nodo(){
-
-}
 
 #endif /* NODO_H_ */

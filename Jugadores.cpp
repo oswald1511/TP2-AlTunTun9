@@ -1,6 +1,8 @@
 #include "Jugadores.h"
 
-Jugadores::Jugadores() {
+Jugadores::Jugadores(int cantidadJugadores) {
+
+
 
 
 }

@@ -5,7 +5,7 @@
 
 class Jugadores {
 private:
-	Lista<Jugador*> * Jugadores;
+	Lista<Jugador*> * Jugador;
 	int cantidadJugadores;
 public:
 	Jugadores(int cantidadJugadores);

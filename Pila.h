@@ -1,9 +1,5 @@
 #ifndef PILA_H_
 #define PILA_H_
-
-#ifndef SRC_PILA_H_
-#define SRC_PILA_H_
-
 #include <cstddef>
 #include "Nodo.h"
 

@@ -1,7 +1,7 @@
 #include "Jugador.h"
 
-Jugador::Jugador() {
-	// TODO Auto-generated constructor stub
+Jugador::Jugador(int cantidadTesoros){
+
 
 }
 
