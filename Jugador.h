@@ -9,6 +9,7 @@
 
 class Jugador {
 private:
+
 	Lista<Tesoro *> * tesoros;
 	Lista<Carta *> * cartas;
 public:

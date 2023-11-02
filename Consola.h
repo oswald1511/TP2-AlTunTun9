@@ -4,6 +4,7 @@
 #include "Vector.h"
 
 class Consola {
+
 public:
 	Consola();
 
@@ -50,6 +51,12 @@ public:
 	 * pos:imprime el tablero seleccionado por la consola
 	 */
 	void imprimirTablero();
+
+	/*
+	 * pre:que el jugador tenga cartas
+	 * pos:muestra por pantalla todas las cartas que tenga el jugador
+	 */
+	void mostrarCartas();
 
 };
 

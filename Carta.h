@@ -12,8 +12,9 @@ public:
 
 	/*
 	 * pre: -
-	 * post: wcrea una carta de tipo aleatorio
-	 */
+
+	 * post: crea una carta de tipo aleatorio
+
 	Carta();
 
 	/*
@@ -34,5 +35,6 @@ public:
 	 */
 	void jugarCarta(std::string tipoCarta);
 };
+
 
 #endif /* CARTA_H_ */

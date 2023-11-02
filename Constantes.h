@@ -1,9 +1,6 @@
 #ifndef CONSTANTES_H_
 #define CONSTANTES_H_
 
-#define FILAS 20
-
-#define COLUMNAS 20
 
 #define ESPIA 'E'
 
@@ -14,5 +11,7 @@
 #define VACIO ' '
 
 #define TESORO 'X'
+
+#define CANTIDAD_MAXIMA_CARTAS 7
 
 #endif /* CONSTANTES_H_ */
