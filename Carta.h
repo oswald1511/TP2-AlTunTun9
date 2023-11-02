@@ -12,8 +12,9 @@ public:
 
 	/*
 	 * pre: -
+
 	 * post: crea una carta de tipo aleatorio
-	 */
+
 	Carta();
 
 	/*

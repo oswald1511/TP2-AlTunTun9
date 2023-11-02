@@ -21,22 +21,20 @@ Vector<int>* Consola::pedirTamanioTablero(){
 	return dimensiones;
 }
 
-
-Vector<int>* Consola::pedirPosicion(){
-
-	Vector<int>* posicion = new Vector<int>(3);
-	int x, y, z;
-	std::cout << "Ingrese posicion X: ";
-	std::cin >> x;
-	std::cout << "Ingrese posicion Y: ";
-	std::cin >> y;
-	std::cout << "Ingrese posicion Z: ";
-	std::cin >> z;
-	posicion->set(1, x);
-	posicion->set(2, y);
-	posicion->set(3, z);
-	return posicion;
-
+	Vector<int>* Consola::pedirPosicion(){
+    
+		Vector<int>* posicion = new Vector<int>(3);
+			int x, y, z;
+			std::cout << "Ingrese posicion X: ";
+			std::cin >> x;
+			std::cout << "Ingrese posicion Y: ";
+			std::cin >> y;
+			std::cout << "Ingrese posicion Z: ";
+			std::cin >> z;
+			posicion->set(1, x);
+			posicion->set(2, y);
+			posicion->set(3, z);
+			return posicion;
 	}
 
 
