@@ -23,40 +23,40 @@ private:
 
 public:
 	/*
-	 * pre:-
-	 * pos:crea el objeto jugador con la cantidad de tesoros pedida
-	 */
-	Jugador(int cantidadTesoros);
+		 * pre: recibe la cantidad de tesoros indicada por el usuario
+		 * post: crea la lista de tesoros y de cartas
+		 */
+		Jugador(int cantidadTesoros);
 
-	/*
-	 * pre:que exista
-	 * pos:-
-	 */
-	virtual ~Jugador();
+		/*
+		 * pre: -
+		 * post: elimina la memoria dinamica utilizada
+		 */
+		virtual ~Jugador();
 
-	/*
-	 * pre:que la posicion este dentro del tablero
-	 * pos:pone un espia en la posicion dada
-	 */
-	void ponerEspia(Vector<int> * posicion);
+		/*
+		 * pre: recibe una posicion dentro de los limites del tablero
+		 * post: coloca el espia verificando si la casilla esta habilitada y si hay tesoros contrarios
+		 */
+		void ponerEspia(Vector<int> * posicion);
 
-	/*
-	 * pre:que a donde se mueva al tesoro sea una posicion valida
-	 * pos:mueve el tesoro a la posicion nueva
-	 */
-	void moverTesoro(Vector<int> * posicionActual, Vector<int> * posicionNueva);
+		/*
+		 * pre: recibe posiciones dentro del tablero
+		 * post: verifica que las posiciones sean validas y mueve el tesoro a la nueva posicion indicada
+		 */
+		void moverTesoro(Vector<int> * posicionActual, Vector<int> * posicionNueva);
 
-	/*
-	 * pre:que el jugador no tenga la cantidad maxima de cartas
-	 * pos:le da una carta
-	 */
-	void robarCarta();
+		/*
+		 * pre: -
+		 * post: el jugador roba una carta aleatoria del mazo
+		 */
+		void robarCarta();
 
-	/*
-	 * pre:que tenga cartas el jugador
-	 * pos:juega la carta seleccionada
-	 */
-	void jugarCarta(string nombreCarta);
+		/*
+		 * pre: el jugador selecciona que carta jugar de su mazo de cartas
+		 * post: se juega la carta segun el tipo que sea
+		 */
+		void jugarCarta(std::string nombreCarta);
 };
 
 #endif /* JUGADOR_H_ */

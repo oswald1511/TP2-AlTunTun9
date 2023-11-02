@@ -1,11 +1,24 @@
 #include "Tesoro.h"
 
-Tesoro::Tesoro(int x, int y, int z){
-	// TODO Auto-generated constructor stub
+Tesoro::Tesoro(){
+	this->posicion = new Vector<int>(3);
+	for(int i = 0; i < 3; i++){
+		this->posicion->set(i, 0);
+	}
+}
 
+Tesoro::Tesoro(Vector<int> * posicion){
+	this->posicion = posicion;
 }
 
 Tesoro::~Tesoro() {
-	// TODO Auto-generated destructor stub
+	delete this->posicion;
 }
 
+Vector<int> * Tesoro::getPosicion(){
+	return this->posicion;
+}
+
+void Tesoro::setPosicion(Vector<int> * posicion){
+	this->posicion = posicion;
+}
