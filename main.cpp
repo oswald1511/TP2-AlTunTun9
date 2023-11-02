@@ -3,8 +3,8 @@
 
 int main(){
 
-	Consola locutor;
-	locutor.bienvenida();
+	Consola *locutor = new Consola;
+	locutor->bienvenida();
 
 	return 0;
 }
