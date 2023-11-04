@@ -14,8 +14,8 @@ Tablero::Tablero(Vector<int>* dimensiones) {
 				posicion->set(3, k);
 				Casillero* casillero = new Casillero(posicion);
 				columna->agregar(casillero);
-				fila->agregar(columna);
 			}
+			fila->agregar(columna);
 		}
 		this->tablero->agregar(fila);
 	}

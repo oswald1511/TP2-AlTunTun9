@@ -2,7 +2,7 @@
 
 Casillero::Casillero(Vector<int> * posicion) {
 	this->posicion = posicion;
-	this->ficha = ' ';
+	this->ficha = '-';
 }
 
 Casillero::~Casillero() {

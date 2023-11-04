@@ -24,7 +24,7 @@ Jugador::Jugador(int cantidadTesoros){
 }
 
 Jugador::~Jugador() {
-	for(int i = 1; i <= this->tesoros->contarElementos(); i++){
+	for(unsigned int i = 1; i <= this->tesoros->contarElementos(); i++){
 		delete this->tesoros->obtener(i);
 	}
 	delete this->tesoros;

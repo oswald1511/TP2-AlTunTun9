@@ -1,7 +1,7 @@
 #include "Consola.h"
 
 Consola::Consola(){
-	this->dimensionesTablero = new Vector<int>(3);
+	this->dimensionesTablero = NULL;
 }
 
 Consola::~Consola(){
