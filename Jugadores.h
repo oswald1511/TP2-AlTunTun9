@@ -5,11 +5,28 @@
 
 class Jugadores {
 private:
-	Lista<Jugador*> * Jugador;
+	Lista<Jugador*> * jugadores;
 	int cantidadJugadores;
+
+
 public:
-	Jugadores(int cantidadJugadores);
+
+	/*
+	 * pre: recibe cantidad de jugadores
+	 * post: crea la lista e inicializa los valores
+	 */
+	Jugadores(int cantidadJugadores, int cantidadTesoros);
+
+	/*
+	 * pre: recibe cantidad de jugadores
+	 * post: elimina la memoria utilizada
+	 */
 	virtual ~Jugadores();
+
+	/*
+	 * pre:
+	 * post: elimina un jugador cuando se queda sin tesoros
+	 */
 	void eliminarJugador();
 };
 

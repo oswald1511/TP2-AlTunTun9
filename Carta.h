@@ -8,20 +8,20 @@ enum nombreCarta {BLINDAJE, RADAR, PARTIR, CARTA4, CARTA5, CARTA6};
 class Carta {
 private:
 	nombreCarta tipoCarta;
+
 public:
 
 	/*
 	 * pre: -
-
 	 * post: crea una carta de tipo aleatorio
-
+	*/
 	Carta();
 
 	/*
 	 * pre:
 	 * post: crea una carta segun el tipo indicado
 	 */
-	Carta(std::string tipoCarta);
+	Carta(nombreCarta tipoCarta);
 
 	/*
 	 * pre:

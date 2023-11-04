@@ -1,9 +1,20 @@
 #ifndef CONSOLA_H_
 #define CONSOLA_H_
+
 #include <iostream>
+#include <string>
 #include "Vector.h"
 
 class Consola {
+
+private:
+	Vector<int>* dimensionesTablero;
+
+	/*
+	* pre: recibe el vector posicion
+	* post: valida que la posicion ingresada se encuentre dentro de las dimensiones del tablero
+	*/
+	void validarPosicion(Vector<int>* posicion);
 
 public:
 	Consola();

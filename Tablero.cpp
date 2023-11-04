@@ -14,24 +14,27 @@ Tablero::Tablero(Vector<int>* dimensiones) {
 				posicion->set(3, k);
 				Casillero* casillero = new Casillero(posicion);
 				columna->agregar(casillero);
-				fila->agregar(columna);
 			}
+			fila->agregar(columna);
 		}
 		this->tablero->agregar(fila);
 	}
 }
 
 Tablero::~Tablero() {
-	for(int i=1; i <= this->dimensiones->get(1); i++) {
-		for(int j=1; j <= this->dimensiones->get(2); j++) {
-			for(int k=1; k <= this->dimensiones->get(3); k++) {
-				Vector<int>* posicion = new Vector<int>(3);
-				posicion->set(1, i);
-				posicion->set(2, j);
-				posicion->set(3, k);
-				delete this->getCasillero(posicion);
+	this->tablero->iniciarCursor();
+	while(this->tablero->avanzarCursor()){
+		Lista<Lista<Casillero *>*>* fila = this->tablero->obtenerCursor();
+		fila->iniciarCursor();
+		while(fila->avanzarCursor()){
+			Lista<Casillero *> * columna = fila->obtenerCursor();
+			columna->iniciarCursor();
+			while(columna->avanzarCursor()){
+				delete columna->obtenerCursor();
 			}
+			delete columna;
 		}
+		delete fila;
 	}
 	delete this->tablero;
 }

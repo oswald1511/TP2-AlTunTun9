@@ -17,6 +17,7 @@ Tesoro::~Tesoro() {
 
 Vector<int> * Tesoro::getPosicion(){
 	return this->posicion;
+}
 
 void Tesoro::setPosicion(Vector<int> * posicion){
 	this->posicion = posicion;

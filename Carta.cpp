@@ -3,10 +3,10 @@
 
 Carta::Carta(){
 	//ver como hacer para que establezca un tipo de carta aleatorio
-	this->tipoCarta = 0; //pongo asi para que no tire error ahora
+	this->tipoCarta = BLINDAJE; //pongo asi para que no tire error ahora
 }
 
-Carta::Carta(std::string tipoCarta){
+Carta::Carta(nombreCarta tipoCarta){
 	this->tipoCarta = tipoCarta;
 }
 
