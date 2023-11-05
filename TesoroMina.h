@@ -6,7 +6,7 @@ class TesoroMina {
 private:
 	Vector<int> * posicion;
 public:
-	TesoroMina(int x, int y, int z);
+	TesoroMina(Vector<int> *posicion);
 	virtual ~TesoroMina();
 	void stePosicion(Vector<int>* posicion);
 };

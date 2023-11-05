@@ -2,19 +2,6 @@
 #include "Consola.h"
 #include "Tesoro.h"
 
-
-/*// y esto?
-void Jugador::validarIndice(unsigned int indice){
-
-	if(indice < 1){
-		throw "El indice debe ser igual o mayor a 1";
-	}
-	if(indice > 5 ){
-		throw "El indice debe ser igual o menor a longitud";
-	}
-}
- */
-
 Jugador::Jugador(int cantidadTesoros){
 	this->tesoros = new Lista<Tesoro *>();
 	for(int i = 0; i < cantidadTesoros; i++){
