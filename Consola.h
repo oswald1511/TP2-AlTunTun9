@@ -3,8 +3,8 @@
 
 #include <iostream>
 #include <string>
-#include <cstdlib>
 #include "Vector.h"
+#include "Tablero.h"
 
 class Consola {
 
@@ -33,12 +33,6 @@ public:
 	 * post: devuelve un vector posicion segun los datos ingresados por consola
 	 */
 	Vector<int>* pedirPosicion();
-
-	/*
-	 * pre: -
-	 * post: devuelve un vector posicion aleatoria dentro de los limites
-	 */
-	Vector<int>* getPosicionAleatoria();
 
 	/* esta es para probar nomas
 	 * pre: -
@@ -74,7 +68,7 @@ public:
 	 * pre:que exista el tablero
 	 * pos:imprime el tablero seleccionado por la consola
 	 */
-	void imprimirTablero();
+	void imprimirTablero(Tablero* tablero);
 
 	/*
 	 * pre:que el jugador tenga cartas

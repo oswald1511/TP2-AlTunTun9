@@ -2,6 +2,7 @@
 #define JUGADORES_H_
 #include "Jugador.h"
 #include "Lista.h"
+#include "Tablero.h"
 
 class Jugadores {
 private:
@@ -22,6 +23,12 @@ public:
 	 * post: elimina la memoria utilizada
 	 */
 	virtual ~Jugadores();
+
+	/*
+	 * pre: recibe el tda tablero para pedir posiciones aleatorias
+	 * post: coloca los tesoros de cada jugador en posiciones aleatorias del tablero
+	 */
+	void inicializarTesoros(Tablero* tablero);
 
 	/*
 	 * pre:

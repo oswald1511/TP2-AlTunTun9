@@ -1,5 +1,6 @@
 #ifndef TABLERO_H_
 #define TABLERO_H_
+#include <cstdlib>
 #include "Lista.h"
 #include "Casillero.h"
 #include "Vector.h"
@@ -24,6 +25,12 @@ public:
 	virtual ~Tablero();
 
 	/*
+	 * pre: -
+	 * post: devuelve la lista de lista de lista de casilleros
+	 */
+	Lista<Lista<Lista<Casillero *>*>*>* getTablero();
+
+	/*
 	 * pre: recibe el vector posicion dentro de los limites del tablero
 	 * post: devuelve el puntero a casillero en la posicion indicada
 	 */
@@ -40,6 +47,12 @@ public:
 	 * post: devuelve la ficha en el casillero de la posicion indicada
 	 */
 	char getFicha(Vector<int> * posicion);
+
+	/*
+	 * pre: -
+	 * post: devuelve un vector posicion aleatoria dentro de los limites del tablero
+	 */
+	Vector<int>* getPosicionAleatoria();
 
 };
 

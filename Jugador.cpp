@@ -11,7 +11,7 @@ Jugador::Jugador(int cantidadTesoros){
 }
 
 Jugador::~Jugador() {
-	for(unsigned int i = 1; i <= this->tesoros->contarElementos(); i++){
+	for(unsigned int i = 0; i < this->tesoros->contarElementos(); i++){
 		delete this->tesoros->obtener(i);
 	}
 	delete this->tesoros;
@@ -32,5 +32,9 @@ void Jugador::robarCarta(){
 
 void Jugador::jugarCarta(std::string nombreCarta){
 
+}
+
+Lista<Tesoro*> * Jugador::getTesoros(){
+	return this->tesoros;
 }
 
