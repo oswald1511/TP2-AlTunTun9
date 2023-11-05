@@ -56,15 +56,6 @@ Vector<int>* Consola::pedirPosicion(){
 	return posicion;
 }
 
-Vector<int>* Consola::getPosicionAleatoria(){
-	Vector<int>* posicion = new Vector<int>(3);
-	for(int i=1; i <= 3; i++){
-		int random = rand() % (this->dimensionesTablero->get(i));
-		posicion->set(i, random);
-	}
-	return posicion;
-}
-
 void Consola::imprimirPosicion(Vector<int>* posicion){
 	std::cout << "Posicion: ";
 	for(int i = 1; i <= 3; i++){
@@ -124,7 +115,26 @@ void Consola::bienvenida(){
 			" odisea cibernética!" << std::endl;
 }
 
-void Consola::imprimirTablero(){
+void Consola::imprimirTablero(Tablero* tablero){
+	Lista<Lista<Lista<Casillero *>*>*>* casilleros = tablero->getTablero();
+	casilleros->iniciarCursor();
+	int i = 1;
+	while(casilleros->avanzarCursor()){
+		std::cout << "Plano " << i << ":" << std::endl;
+		Lista<Lista<Casillero*>*>* fila = casilleros->obtenerCursor();
+		fila->iniciarCursor();
+		while(fila->avanzarCursor()){
+			Lista<Casillero*>* columna = fila->obtenerCursor();
+			columna->iniciarCursor();
+			while(columna->avanzarCursor()){
+				Casillero* casillero = columna->obtenerCursor();
+				char ficha = casillero->getFicha();
+				std::cout << ficha << " ";
+			}
+			std::cout << "\n";
+		}
+		std::cout << "\n";
+		i++;
+	}
 
-	//me fatla definir mas cosas para saber como hacer esto
 }

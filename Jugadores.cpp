@@ -16,6 +16,20 @@ Jugadores::~Jugadores() {
 	delete this->jugadores;
 }
 
+void Jugadores::inicializarTesoros(Tablero* tablero){
+	this->jugadores->iniciarCursor();
+	while(this->jugadores->avanzarCursor()){
+		Jugador * jugador = this->jugadores->obtenerCursor();
+		Lista<Tesoro*> * tesoros = jugador->getTesoros();
+		tesoros->iniciarCursor();
+		while(tesoros->avanzarCursor()){
+			Vector<int>* posicion = tablero->getPosicionAleatoria();
+			tesoros->obtenerCursor()->setPosicion(posicion);
+			tablero->setCasillero(posicion, 'T');
+		}
+	}
+}
+
 void Jugadores::eliminarJugador(){
 
 }

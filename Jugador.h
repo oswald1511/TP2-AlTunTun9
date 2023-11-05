@@ -49,6 +49,12 @@ public:
 	 * post: se juega la carta segun el tipo que sea
 	 */
 	void jugarCarta(std::string nombreCarta);
+
+	/*
+	 * pre: -
+	 * post: devuelve la lista de tesoros
+	 */
+	Lista<Tesoro*> * getTesoros();
 };
 
 #endif /* JUGADOR_H_ */

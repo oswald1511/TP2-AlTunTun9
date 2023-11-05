@@ -39,6 +39,10 @@ Tablero::~Tablero() {
 	delete this->tablero;
 }
 
+Lista<Lista<Lista<Casillero *>*>*>* Tablero::getTablero(){
+	return this->tablero;
+}
+
 Casillero * Tablero::getCasillero(Vector<int> * posicion){
 	return this->tablero->obtener(posicion->get(1))->obtener(posicion->get(2))->obtener(posicion->get(3));
 }
@@ -50,5 +54,14 @@ char Tablero::getFicha(Vector<int> * posicion){
 
 void Tablero::setCasillero(Vector<int> * posicion, char ficha){
 	this->getCasillero(posicion)->setFicha(ficha);
+}
+
+Vector<int>* Tablero::getPosicionAleatoria(){
+	Vector<int>* posicion = new Vector<int>(3);
+	for(int i=1; i <= 3; i++){
+		int random = rand() % (this->dimensiones->get(i));
+		posicion->set(i, random + 1);
+	}
+	return posicion;
 }
 
