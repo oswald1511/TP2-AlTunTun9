@@ -11,7 +11,7 @@ Consola::~Consola(){
 void Consola::validarPosicion(Vector<int>* posicion){
 	for(int i = 1; i <= 3; i++){
 		if(posicion->get(i) > this->dimensionesTablero->get(i)){
-			throw "La posicion excede los limites del tablero";
+			throw std::string("La posicion excede los limites del tablero");
 		}
 	}
 }
@@ -49,8 +49,9 @@ Vector<int>* Consola::pedirPosicion(){
 		try{
 			this->validarPosicion(posicion);
 			ok = true;
-		}catch(...){
-			std::cout << "Posicion invalida vuelva a ingresar" << std::endl;
+		}catch(std::string& error){
+			std::cout << error << std::endl;
+			std::cout << "Ingrese otra posicion" << std::endl;
 		}
 	}
 	return posicion;

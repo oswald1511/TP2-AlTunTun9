@@ -35,10 +35,9 @@ int main(){
 
 	/*
 	Vector<int>* posicion = consola->pedirPosicion();
-	cout << "El casillero seleccionado tiene la ficha: ";
-	cout << tablero->getCasillero(posicion)->getFicha() << endl;
 	delete posicion;
-	 */
+	*/
+
 
 
 	delete jugadores;
