@@ -8,11 +8,14 @@ using namespace std;
 int main(){
 	srand(time(NULL));
 	Consola* consola = new Consola();
-	Tablero* tablero = new Tablero(consola->pedirTamanioTablero());
+	Vector<int>* dimensionesTablero = consola->pedirTamanioTablero();
+	int cantidadJugadores = consola->pedirCantidadJugadores();
+	int cantidadTesoros = consola->pedirCantidadTesoros();
 	//consola->bienvenida();
-	Jugadores* jugadores = new Jugadores(consola->pedirCantidadJugadores(), consola->pedirCantidadTesoros());
-	jugadores->inicializarTesoros(tablero);
-	consola->imprimirTablero(tablero);
+	Jugadores* jugadores = new Jugadores(dimensionesTablero, cantidadJugadores, cantidadTesoros);
+
+	//ejemplo de imprimir el tablero del jugador 1
+	consola->imprimirTablero(jugadores->getJugador(1)->getTablero());
 
 
 	/*
@@ -24,7 +27,6 @@ int main(){
 
 
 	delete jugadores;
-	delete tablero;
 	delete consola;
 	return 0;
 }

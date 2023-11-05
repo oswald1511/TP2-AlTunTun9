@@ -6,19 +6,22 @@
 #include "Tesoro.h"
 #include "Carta.h"
 #include "Vector.h"
+#include "Tablero.h"
 
 class Jugador {
 private:
 
 	Lista<Tesoro *> * tesoros;
 	Lista<Carta *> * cartas;
+	Tablero* tablero;
+
 public:
 
 	/*
 	 * pre: recibe la cantidad de tesoros indicada por el usuario
 	 * post: crea la lista de tesoros y de cartas
 	 */
-	Jugador(int cantidadTesoros);
+	Jugador(Vector<int>* dimensionesTablero, int cantidadTesoros);
 
 	/*
 	 * pre: -
@@ -52,9 +55,21 @@ public:
 
 	/*
 	 * pre: -
+	 * post: coloca los tesoros de cada jugador en posiciones aleatorias del tablero
+	 */
+	void inicializarTesoros();
+
+	/*
+	 * pre: -
 	 * post: devuelve la lista de tesoros
 	 */
 	Lista<Tesoro*> * getTesoros();
+
+	/*
+	 * pre: -
+	 * post: devuelve el tablero del jugador
+	 */
+	Tablero * getTablero();
 };
 
 #endif /* JUGADOR_H_ */

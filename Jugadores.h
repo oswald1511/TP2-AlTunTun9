@@ -10,13 +10,14 @@ private:
 	int cantidadJugadores;
 
 
+
 public:
 
 	/*
 	 * pre: recibe cantidad de jugadores
 	 * post: crea la lista e inicializa los valores
 	 */
-	Jugadores(int cantidadJugadores, int cantidadTesoros);
+	Jugadores(Vector<int>* dimensionesTablero, int cantidadJugadores, int cantidadTesoros);
 
 	/*
 	 * pre: recibe cantidad de jugadores
@@ -25,10 +26,16 @@ public:
 	virtual ~Jugadores();
 
 	/*
-	 * pre: recibe el tda tablero para pedir posiciones aleatorias
+	 * pre: -
 	 * post: coloca los tesoros de cada jugador en posiciones aleatorias del tablero
 	 */
-	void inicializarTesoros(Tablero* tablero);
+	void inicializarTesoros();
+
+	/*
+	 * pre: recibe el numero de jugador solicitado
+	 * post: devuelve el jugador del numero indicado
+	 */
+	Jugador* getJugador(unsigned int numeroJugador);
 
 	/*
 	 * pre:
