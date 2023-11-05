@@ -1,13 +1,14 @@
 
 #include "Consola.h"
 #include "Tablero.h"
+#include "Jugadores.h"
 
 using namespace std;
 
 int main(){
-
-	Consola *consola = new Consola();
-	Tablero *tablero = new Tablero(consola->pedirTamanioTablero());
+	srand(time(NULL));
+	Consola* consola = new Consola();
+	Tablero* tablero = new Tablero(consola->pedirTamanioTablero());
 	//consola->bienvenida();
 
 	Vector<int>* posicion = consola->pedirPosicion();

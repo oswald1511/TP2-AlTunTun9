@@ -56,11 +56,28 @@ Vector<int>* Consola::pedirPosicion(){
 	return posicion;
 }
 
+Vector<int>* Consola::getPosicionAleatoria(){
+	Vector<int>* posicion = new Vector<int>(3);
+	for(int i=1; i <= 3; i++){
+		int random = rand() % (this->dimensionesTablero->get(i));
+		posicion->set(i, random);
+	}
+	return posicion;
+}
+
+void Consola::imprimirPosicion(Vector<int>* posicion){
+	std::cout << "Posicion: ";
+	for(int i = 1; i <= 3; i++){
+		std::cout << posicion->get(i) << " ";
+	}
+	std::cout << "\n";
+}
+
 
 int Consola::pedirCantidadJugadores(){
 
 	int cantidadJugadores;
-	std::cout << "ingrese la cantdad de jugadores:" << std::endl;
+	std::cout << "Ingrese la cantdad de jugadores: ";
 	std::cin >> cantidadJugadores;
 
 	return cantidadJugadores;
@@ -69,7 +86,7 @@ int Consola::pedirCantidadJugadores(){
 
 int Consola::pedirCantidadTesoros(){
 	int cantidadTesoros;
-	std::cout << "ingrese la cantdad de tesoros:" << std::endl;
+	std::cout << "Ingrese la cantdad de tesoros: ";
 	std::cin >> cantidadTesoros;
 	return cantidadTesoros;
 }

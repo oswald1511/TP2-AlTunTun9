@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include <cstdlib>
 #include "Vector.h"
 
 class Consola {
@@ -32,6 +33,18 @@ public:
 	 * post: devuelve un vector posicion segun los datos ingresados por consola
 	 */
 	Vector<int>* pedirPosicion();
+
+	/*
+	 * pre: -
+	 * post: devuelve un vector posicion aleatoria dentro de los limites
+	 */
+	Vector<int>* getPosicionAleatoria();
+
+	/* esta es para probar nomas
+	 * pre: -
+	 * post: imprime una posicion por pantalla
+	 */
+	void imprimirPosicion(Vector<int>* posicion);
 
 	/*
 	 * pre: -
