@@ -7,6 +7,7 @@
 #include "Carta.h"
 #include "Vector.h"
 #include "Tablero.h"
+#include "Constantes.h"
 
 class Jugador {
 private:
