@@ -1,6 +1,7 @@
 #ifndef CARTA_H_
 #define CARTA_H_
 
+#include <cstdlib>
 #include <string>
 
 enum nombreCarta {BLINDAJE, RADAR, PARTIR, CARTA4, CARTA5, CARTA6};
@@ -33,7 +34,15 @@ public:
 	 * pre: -
 	 * post: se juega la carta segun el tipo de carta que sea
 	 */
-	void jugarCarta(std::string tipoCarta);
+	void jugarCarta(nombreCarta tipoCarta);
+
+	/*
+	 * pre: -
+	 * post: devuelve el tipo de carta
+	 */
+	std::string getNombreCarta();
+
+
 };
 
 

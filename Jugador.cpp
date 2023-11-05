@@ -1,6 +1,4 @@
 #include "Jugador.h"
-#include "Consola.h"
-#include "Tesoro.h"
 
 Jugador::Jugador(Vector<int>* dimensionesTablero, int cantidadTesoros){
 	this->tesoros = new Lista<Tesoro *>();
@@ -8,6 +6,7 @@ Jugador::Jugador(Vector<int>* dimensionesTablero, int cantidadTesoros){
 		this->tesoros->agregar(new Tesoro());
 	}
 	this->cartas = new Lista<Carta *>();
+	this->cantidadMaximaCartas = 7;
 	this->tablero = new Tablero(dimensionesTablero);
 }
 
@@ -15,6 +14,10 @@ Jugador::~Jugador() {
 	this->tesoros->iniciarCursor();
 	while(this->tesoros->avanzarCursor()){
 		delete this->tesoros->obtenerCursor();
+	}
+	this->cartas->iniciarCursor();
+	while(this->cartas->avanzarCursor()){
+		delete this->cartas->obtenerCursor();
 	}
 	delete this->tesoros;
 	delete this->cartas;
@@ -30,10 +33,13 @@ void Jugador::moverTesoro(Vector<int> * posicionActual, Vector<int> * posicionNu
 }
 
 void Jugador::robarCarta(){
-
+	if(this->cartas->contarElementos() == this->cantidadMaximaCartas){
+		throw "El jugador no puede robar mas cartas";
+	}
+	this->cartas->agregar(new Carta());
 }
 
-void Jugador::jugarCarta(std::string nombreCarta){
+void Jugador::jugarCarta(nombreCarta nombreCarta){
 
 }
 
@@ -48,6 +54,10 @@ void Jugador::inicializarTesoros(){
 
 Lista<Tesoro*> * Jugador::getTesoros(){
 	return this->tesoros;
+}
+
+Lista<Carta*> * Jugador::getCartas(){
+	return this->cartas;
 }
 
 Tablero* Jugador::getTablero(){

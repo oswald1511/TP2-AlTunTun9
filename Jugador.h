@@ -14,6 +14,7 @@ private:
 	Lista<Tesoro *> * tesoros;
 	Lista<Carta *> * cartas;
 	Tablero* tablero;
+	unsigned int cantidadMaximaCartas;
 
 public:
 
@@ -51,7 +52,7 @@ public:
 	 * pre: el jugador selecciona que carta jugar de su mazo de cartas
 	 * post: se juega la carta segun el tipo que sea
 	 */
-	void jugarCarta(std::string nombreCarta);
+	void jugarCarta(nombreCarta nombreCarta);
 
 	/*
 	 * pre: -
@@ -64,6 +65,12 @@ public:
 	 * post: devuelve la lista de tesoros
 	 */
 	Lista<Tesoro*> * getTesoros();
+
+	/*
+	 * pre: -
+	 * post: devuelve la lista de cartas
+	 */
+	Lista<Carta*> * getCartas();
 
 	/*
 	 * pre: -
