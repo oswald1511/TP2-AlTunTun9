@@ -1,10 +1,7 @@
 #include "Tesoro.h"
 
 Tesoro::Tesoro(){
-	this->posicion = new Vector<int>(3);
-	for(int i = 1; i <= 3; i++){
-		this->posicion->set(i, 0);
-	}
+	this->posicion = NULL;
 }
 
 Tesoro::Tesoro(Vector<int> * posicion){

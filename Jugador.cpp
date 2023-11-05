@@ -4,15 +4,16 @@
 
 Jugador::Jugador(int cantidadTesoros){
 	this->tesoros = new Lista<Tesoro *>();
-	for(int i = 0; i < cantidadTesoros; i++){
+	for(int i = 0; i < cantidadTesoros ; i++){
 		this->tesoros->agregar(new Tesoro());
 	}
 	this->cartas = new Lista<Carta *>();
 }
 
 Jugador::~Jugador() {
-	for(unsigned int i = 0; i < this->tesoros->contarElementos(); i++){
-		delete this->tesoros->obtener(i);
+	this->tesoros->iniciarCursor();
+	while(this->tesoros->avanzarCursor()){
+		delete this->tesoros->obtenerCursor();
 	}
 	delete this->tesoros;
 	delete this->cartas;
