@@ -6,7 +6,7 @@ Jugador::Jugador(Vector<int>* dimensionesTablero, int cantidadTesoros){
 		this->tesoros->agregar(new Tesoro());
 	}
 	this->cartas = new Lista<Carta *>();
-	this->cantidadMaximaCartas = 7;
+	this->cantidadMaximaCartas = CANTIDAD_MAXIMA_CARTAS;
 	this->tablero = new Tablero(dimensionesTablero);
 }
 
