@@ -137,5 +137,8 @@ void Consola::imprimirTablero(Tablero* tablero){
 		std::cout << "\n";
 		i++;
 	}
+}
 
+Vector<int> * Consola::getDimensiones(){
+	return this->dimensionesTablero;
 }

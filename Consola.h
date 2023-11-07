@@ -76,6 +76,12 @@ public:
 	 */
 	void mostrarCartas();
 
+	/*
+	 * pre:
+	 * pos:devuelve las dimensiones
+	 */
+	Vector<int>* getDimensiones();
+
 };
 
 #endif /* CONSOLA_H_ */

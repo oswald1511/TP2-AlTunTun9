@@ -56,7 +56,7 @@ void Tablero::setCasillero(Vector<int> * posicion, char ficha){
 	this->getCasillero(posicion)->setFicha(ficha);
 }
 
-Vector<int>* Tablero::getPosicionAleatoria(){
+Vector<int>* Tablero::getPosicionAleatoria(){//para que es este metodo? los tesoros los pone el usuario
 	Vector<int>* posicion = new Vector<int>(3);
 	for(int i=1; i <= 3; i++){
 		int random = rand() % (this->dimensiones->get(i));
