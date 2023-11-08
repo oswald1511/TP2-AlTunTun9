@@ -1,33 +1,40 @@
 #include "Casillero.h"
 
-Casillero::Casillero(Vector<int> * posicion) {
-	this->posicion = posicion;
-	this->ficha = '-';
+Casillero::Casillero(Vector<int> *posicion) {
+    this->posicion = posicion;
+    this->ficha = '-';
+    this->turnosDeshabilitado = 0; // Inicializa el contador de turnos deshabilitado en 0
 }
 
 Casillero::~Casillero() {
-	delete this->posicion;
+    delete this->posicion;
 }
 
-Vector<int> * Casillero::getPosicion(){
-	return this->posicion;
+Vector<int> *Casillero::getPosicion() {
+    return this->posicion;
 }
 
-//hay que ver como hacer para que este deshabilitada por 5 turnos y despues se habilite
-void Casillero::deshabilitar(){
-	this->ficha = 'X';
+void Casillero::deshabilitar() {
+    this->ficha = 'X';
+    this->turnosDeshabilitado = 5; // Deshabilita el casillero por el número de turnos especificado
 }
 
-//y esta seria invocada por deshabilitar cuando toque volverla a habilitar.
-//hay que ver que hace o si no hace falta capaz con setFicha estamos
-void Casillero::habilitar(){
+void Casillero::habilitar() {
+    if (this->ficha == 'X' && this->turnosDeshabilitado > 0) {
+        this->turnosDeshabilitado--;
+
+        if (this->turnosDeshabilitado == 0) {
+            this->ficha = '-';
+        }
+    }
 }
 
-void Casillero::setFicha(char ficha){
-	this->ficha = ficha;
+void Casillero::setFicha(char ficha) {
+    this->ficha = ficha;
 }
 
-char Casillero::getFicha(){
-	return this->ficha;
+char Casillero::getFicha() {
+    return this->ficha;
 }
+
 
