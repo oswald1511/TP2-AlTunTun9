@@ -34,7 +34,7 @@ void Jugador::moverTesoro(Vector<int> * posicionActual, Vector<int> * posicionNu
 
 void Jugador::robarCarta(){
 	if(this->cartas->contarElementos() == this->cantidadMaximaCartas){
-		throw "El jugador no puede robar mas cartas";
+		throw std::string("El jugador no puede robar mas cartas");
 	}
 	this->cartas->agregar(new Carta());
 }

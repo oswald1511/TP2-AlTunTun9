@@ -14,17 +14,14 @@ int main(){
 	Jugadores* jugadores = new Jugadores(dimensionesTablero, cantidadJugadores, cantidadTesoros);
 
 	//ejemplo para ver si se agarra bien las cartas
-	for(int i = 1; i <= 5; i++){
+	for(int i = 1; i <= 3; i++){
 		Jugador* jugador = jugadores->getJugador(i);
 		for(int j = 0; j < 3; j++){
 			jugador->robarCarta();
 		}
-		jugador->getCartas()->iniciarCursor();
-		cout << "Cartas jugador " << i << ": ";
-		while(jugador->getCartas()->avanzarCursor()){
-			cout << jugador->getCartas()->obtenerCursor()->getNombreCarta() << " ";
-		}
-		cout << "\n";
+		Lista<Carta*>* cartas = jugador->getCartas();
+		cout << "Jugador " << i << ":" << endl;
+		consola->mostrarCartas(cartas);
 	}
 
 	//ejemplo de imprimir el tablero del jugador 1

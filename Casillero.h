@@ -6,6 +6,7 @@ class Casillero {
 private:
 	char ficha;
 	Vector<int> * posicion;
+	int turnosDeshabilitado;
 
 public:
 
@@ -31,7 +32,7 @@ public:
 	 * pre: -
 	 * post: deshabilita la casilla por X turnos
 	 */
-	void deshabilitar();
+	void deshabilitar(int turnos);
 
 	/*
 	 * pre: -

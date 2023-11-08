@@ -5,6 +5,8 @@
 #include <string>
 #include "Vector.h"
 #include "Tablero.h"
+#include "Lista.h"
+#include "Carta.h"
 
 class Consola {
 
@@ -74,7 +76,7 @@ public:
 	 * pre:que el jugador tenga cartas
 	 * pos:muestra por pantalla todas las cartas que tenga el jugador
 	 */
-	void mostrarCartas();
+	void mostrarCartas(Lista<Carta*> * cartas);
 
 	/*
 	 * pre:
