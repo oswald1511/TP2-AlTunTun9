@@ -14,9 +14,9 @@ Vector<int> *Casillero::getPosicion() {
     return this->posicion;
 }
 
-void Casillero::deshabilitar() {
+void Casillero::deshabilitar( int turnos) {
     this->ficha = 'X';
-    this->turnosDeshabilitado = 5; // Deshabilita el casillero por el número de turnos especificado
+    this->turnosDeshabilitado = turnos ; // Deshabilita el casillero por un número de turnos 
 }
 
 void Casillero::habilitar() {
