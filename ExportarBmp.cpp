@@ -6,17 +6,19 @@ ExportarBmp::ExportarBmp(int cantidadDeJugadores,Vector<int> *dimensiones){
 	tablero.bitmap_image(crearTablero);
 	this->dimensiones = dimensiones;
 	this->tableros= new Vector<Vector<bitmap_image>*>(cantidadDeJugadores);
+	this->nombreDelArchivo= new Vector<Vector<std::string>*>(cantidadDeJugadores);
 	for (int i = 1; i <= cantidadDeJugadores; i++) {
 	        this->tableros->set(i,new Vector<bitmap_image>(dimensiones->get(3)));
+	        this->nombreDelArchivo->set(i,new Vector<std::string>(dimensiones->get(3)));
 	    }
 
 	//le pongo tableros vacios a cada nivel de cada jugador y le asigno el nombre correspondiente
 	std::string nombre;
 	for (int i = 1; i <= cantidadDeJugadores; i++) {
-		for (int j = 1; j <= dimensiones->getLongitud(); j++){
+		for (int j = 1; j <= this->dimensiones->get(3); j++){
 			this->tableros->get(i)->set(j,tablero);
-			nombre=formarNombreCompleto(i,j);
-			tablero.save_image(nombre);
+			this->nombreDelArchivo->get(i)->set(j,formarNombreCompleto(i,j));
+			tablero.save_image(this->nombreDelArchivo->get(i)->get(j));
 		}
 	}
 	//inicializo los atributos con los archivos de los .bmp
@@ -73,25 +75,38 @@ ExportarBmp::~ExportarBmp() {
 
 void ExportarBmp::ponerEnBlanco(Vector<int>* posicion, int jugador){
 
-	//this->tableros->get(posicion->get(jugador))->set(posicion->get(3),
-	//		tablero.copy_from(this->blanco,((posicion->get(1)*50)-48),((posicion->get(2)*50)-48));
-	this->tableros
+	this->tableros->get(jugador)->get(posicion->get(3))
+			.copy_from(this->blanco,((posicion->get(1)*50)-48),((posicion->get(2)*50)-48));
 }
 
 
-void ExportarBmp::ponerEspia(Vector<int>* posicion){
+void ExportarBmp::ponerEspia(Vector<int>* posicion, int jugador){
+
+	this->tableros->get(jugador)->get(posicion->get(3))
+				.copy_from(this->espia,((posicion->get(1)*50)-48),((posicion->get(2)*50)-48));
 
 }
 
-void ExportarBmp::moverTesoro(Vector<int>* posicionActual, Vector<int>* posicionNueva){
+void ExportarBmp::moverTesoro(Vector<int>* posicionActual, Vector<int>* posicionNueva, int jugador){
+
+	this->tableros->get(jugador)->get(posicionActual->get(3))
+				.copy_from(this->blanco,((posicionActual->get(1)*50)-48),((posicionActual->get(2)*50)-48));
+	this->tableros->get(jugador)->get(posicionNueva->get(3))
+				.copy_from(this->tesoro,((posicionNueva->get(1)*50)-48),((posicionNueva->get(2)*50)-48));
 
 }
 
-void ExportarBmp::ponerTesoroMina(Vector<int>* posicion){
+void ExportarBmp::ponerTesoroMina(Vector<int>* posicion, int jugador){
+
+	this->tableros->get(jugador)->get(posicion->get(3))
+				.copy_from(this->tesoroMina,((posicion->get(1)*50)-48),((posicion->get(2)*50)-48));
 
 }
 
-void ExportarBmp::ponerBlindaje(Vector<int>* posicion){
+void ExportarBmp::ponerBlindaje(Vector<int>* posicion, int jugador){
+
+	this->tableros->get(jugador)->get(posicion->get(3))
+				.copy_from(this->blindaje,((posicion->get(1)*50)-48),((posicion->get(2)*50)-48));
 
 }
 

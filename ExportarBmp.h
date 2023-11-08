@@ -2,12 +2,13 @@
 #define EXPORTARBMP_H_
 #include "Vector.h"
 #include "bitmap_image.hpp"
-#include "consola.h"
+
 
 class ExportarBmp {
 
 private:
 	Vector<Vector<bitmap_image>*>* tableros;
+	Vector<Vector<std::string>*>* nombreDelArchivo;
 	Vector<int> *dimensiones;
 	bitmap_image tesoro;
 	bitmap_image espia;
@@ -45,25 +46,25 @@ public:
 	 * pre:
 	 * pos:
 	 */
-	void ponerEspia(Vector<int>* posicion);
+	void ponerEspia(Vector<int>* posicion, int jugador);
 
 	/*
 	 * pre:
 	 * pos:
 	 */
-	void moverTesoro(Vector<int>* posicionActual, Vector<int>* posicionNueva);
+	void moverTesoro(Vector<int>* posicionActual, Vector<int>* posicionNueva, int jugador);
 
 	/*
 	 * pre:
 	 * pos:
 	 */
-	void ponerTesoroMina(Vector<int>* posicion);
+	void ponerTesoroMina(Vector<int>* posicion, int jugador);
 
 	/*
 	 * pre:
 	 * pos:
 	 */
-	void ponerBlindaje(Vector<int>* posicion);
+	void ponerBlindaje(Vector<int>* posicion, int jugador);
 
 	/*
 	 * pre:
