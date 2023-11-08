@@ -1,7 +1,7 @@
 #ifndef LADRON_H
 #define LADRON_H
 
-#include "Jugadores.h" // Asegúrate de incluir los encabezados necesarios
+#include "Jugadores.h" 
 
 class Ladron {
 public:
