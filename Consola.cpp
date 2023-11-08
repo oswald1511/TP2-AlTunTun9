@@ -139,6 +139,11 @@ void Consola::imprimirTablero(Tablero* tablero){
 	}
 }
 
+
+Vector<int> * Consola::getDimensiones(){
+	return this->dimensionesTablero;
+}
+
 void Consola::mostrarCartas(Lista<Carta*> * cartas){
 	cartas->iniciarCursor();
 	std::cout << "Tiene las siguientes cartas: " << std::endl;
@@ -147,4 +152,5 @@ void Consola::mostrarCartas(Lista<Carta*> * cartas){
 		std::cout << i << ") " << cartas->obtenerCursor()->getNombreCarta() << "\n";
 		i++;
 	}
+
 }

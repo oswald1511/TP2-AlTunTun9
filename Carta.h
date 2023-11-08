@@ -4,7 +4,9 @@
 #include <cstdlib>
 #include <string>
 
-enum nombreCarta {BLINDAJE, RADAR, PARTIR, CARTA4, LADRON, CARTA6};
+
+enum nombreCarta {BLINDAJE, RADAR, PARTIR, LADRON, SNIPER, ROBAR};
+
 
 class Carta {
 private:
