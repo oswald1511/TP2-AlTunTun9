@@ -29,14 +29,14 @@ std::string Carta::getNombreCarta(){
 	case(PARTIR):
 		nombreCarta = "Partir";
 		break;
-	case(CARTA4):
-		nombreCarta = "Carta4";
+	case(LADRON):
+		nombreCarta = "Ladron";
 		break;
-	case(CARTA5):
-		nombreCarta = "Carta5";
+	case(SNIPER):
+		nombreCarta = "Sniper";
 		break;
-	case(CARTA6):
-		nombreCarta = "Carta6";
+	case(ROBAR):
+		nombreCarta = "Robar";
 		break;
 	default:
 		break;

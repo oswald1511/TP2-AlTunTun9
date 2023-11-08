@@ -28,6 +28,8 @@ ExportarBmp::ExportarBmp(int cantidadDeJugadores,Vector<int> *dimensiones){
 	this->espia=espiaCopy;
 	bitmap_image tesoroMinaCopy("tesoroMina.bmp");
 	this->tesoroMina=tesoroMinaCopy;
+	bitmap_image blancoCopy("blanco.bmp");
+	this->blanco=blancoCopy;
 
 }
 
@@ -68,4 +70,29 @@ ExportarBmp::~ExportarBmp() {
 			delete[] tableros->get(i);
 	}
 }
+
+void ExportarBmp::ponerEnBlanco(Vector<int>* posicion, int jugador){
+
+	//this->tableros->get(posicion->get(jugador))->set(posicion->get(3),
+	//		tablero.copy_from(this->blanco,((posicion->get(1)*50)-48),((posicion->get(2)*50)-48));
+	this->tableros
+}
+
+
+void ExportarBmp::ponerEspia(Vector<int>* posicion){
+
+}
+
+void ExportarBmp::moverTesoro(Vector<int>* posicionActual, Vector<int>* posicionNueva){
+
+}
+
+void ExportarBmp::ponerTesoroMina(Vector<int>* posicion){
+
+}
+
+void ExportarBmp::ponerBlindaje(Vector<int>* posicion){
+
+}
+
 

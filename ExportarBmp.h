@@ -13,6 +13,7 @@ private:
 	bitmap_image espia;
 	bitmap_image tesoroMina;
 	bitmap_image blindaje;
+	bitmap_image blanco;
 
 public:
 
@@ -39,6 +40,36 @@ public:
 	 * pos:elimina la memoria dinamica utilizada
 	 */
 	virtual ~ExportarBmp();
+
+	/*
+	 * pre:
+	 * pos:
+	 */
+	void ponerEspia(Vector<int>* posicion);
+
+	/*
+	 * pre:
+	 * pos:
+	 */
+	void moverTesoro(Vector<int>* posicionActual, Vector<int>* posicionNueva);
+
+	/*
+	 * pre:
+	 * pos:
+	 */
+	void ponerTesoroMina(Vector<int>* posicion);
+
+	/*
+	 * pre:
+	 * pos:
+	 */
+	void ponerBlindaje(Vector<int>* posicion);
+
+	/*
+	 * pre:
+	 * pos:
+	 */
+	void ponerEnBlanco(Vector<int>* posicion, int jugador);
 };
 
 #endif /* EXPORTARBMP_H_ */
