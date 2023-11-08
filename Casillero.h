@@ -6,6 +6,7 @@ class Casillero {
 private:
 	char ficha;
 	Vector<int> * posicion;
+	int turnosDeshabilitado;
 
 public:
 

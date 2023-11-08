@@ -137,5 +137,14 @@ void Consola::imprimirTablero(Tablero* tablero){
 		std::cout << "\n";
 		i++;
 	}
+}
 
+void Consola::mostrarCartas(Lista<Carta*> * cartas){
+	cartas->iniciarCursor();
+	std::cout << "Tiene las siguientes cartas: " << std::endl;
+	int i = 1;
+	while(cartas->avanzarCursor()){
+		std::cout << i << ") " << cartas->obtenerCursor()->getNombreCarta() << "\n";
+		i++;
+	}
 }

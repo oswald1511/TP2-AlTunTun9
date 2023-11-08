@@ -32,8 +32,8 @@ std::string Carta::getNombreCarta(){
 	case(CARTA4):
 		nombreCarta = "Carta4";
 		break;
-	case(CARTA5):
-		nombreCarta = "Ladrón";
+	case(LADRON):
+		nombreCarta = "Ladron";
 		break;
 	case(CARTA6):
 		nombreCarta = "Carta6";
