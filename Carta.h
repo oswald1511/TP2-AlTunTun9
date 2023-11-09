@@ -36,7 +36,7 @@ public:
 	 * pre: -
 	 * post: se juega la carta segun el tipo de carta que sea
 	 */
-	void jugarCarta(nombreCarta tipoCarta);
+	void jugarCarta();
 
 	/*
 	 * pre: -

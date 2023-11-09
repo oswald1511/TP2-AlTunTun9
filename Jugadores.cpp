@@ -25,6 +25,10 @@ void Jugadores::inicializarTesoros(){
 	}
 }
 
+int Jugadores::getCantidadJugadores(){
+	return this->cantidadJugadores;
+}
+
 Jugador* Jugadores::getJugador(unsigned int numeroJugador){
 	return this->jugadores->obtener(numeroJugador);
 }

@@ -84,6 +84,20 @@ public:
 	 */
 	Vector<int>* getDimensiones();
 
+	/*
+	 * pre: recibe la pregunta que hay que hacerle al usuario (preguntas por si o no)
+	 * pos: devuelve true si dice que si y false si dice que no
+	 */
+	bool tomaDecision(std::string consulta);
+
+	/*
+	 * pre: recibe la lista de cartas del jugador
+	 * pos: devuelve la posicion de la lista en la que se encuentra la carta elegida
+	 */
+	int seleccionarCarta(Lista<Carta*> * cartas);
+
+
+
 };
 
 #endif /* CONSOLA_H_ */

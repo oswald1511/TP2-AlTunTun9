@@ -50,10 +50,10 @@ public:
 	void robarCarta();
 
 	/*
-	 * pre: el jugador selecciona que carta jugar de su mazo de cartas
+	 * pre: el jugador selecciona que carta jugar de su mazo de cartas (selecciona la posicion en la lista)
 	 * post: se juega la carta segun el tipo que sea
 	 */
-	void jugarCarta(nombreCarta nombreCarta);
+	void jugarCarta(int posicion);
 
 	/*
 	 * pre: -

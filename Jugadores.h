@@ -32,6 +32,12 @@ public:
 	void inicializarTesoros();
 
 	/*
+	 * pre: -
+	 * post: devuelve la cantidad de jugadores
+	 */
+	int getCantidadJugadores();
+
+	/*
 	 * pre: recibe el numero de jugador solicitado
 	 * post: devuelve el jugador del numero indicado
 	 */
