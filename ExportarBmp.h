@@ -44,31 +44,31 @@ public:
 
 	/*
 	 * pre:
-	 * pos:
+	 * pos:pone imagen de espia en el casillero
 	 */
 	void ponerEspia(Vector<int>* posicion, int jugador);
 
 	/*
 	 * pre:
-	 * pos:
+	 * pos:pone imagen de tesoro en el casillero nuevo, y deja vacio el casillero anterior
 	 */
 	void moverTesoro(Vector<int>* posicionActual, Vector<int>* posicionNueva, int jugador);
 
 	/*
 	 * pre:
-	 * pos:
+	 * pos:pone imagen de tesoro mina en el casillero
 	 */
 	void ponerTesoroMina(Vector<int>* posicion, int jugador);
 
 	/*
 	 * pre:
-	 * pos:
+	 * pos:pone imagen de blinaje en el casillero
 	 */
 	void ponerBlindaje(Vector<int>* posicion, int jugador);
 
 	/*
 	 * pre:
-	 * pos:
+	 * pos:pone el casillero vacio
 	 */
 	void ponerEnBlanco(Vector<int>* posicion, int jugador);
 };
