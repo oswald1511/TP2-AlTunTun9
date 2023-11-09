@@ -33,4 +33,14 @@ void Jugadores::eliminarJugador(){
 
 }
 
+int Jugadores::obtenerCantidadTotalDeJugadores() {
+    return this->cantidadJugadores;
+}
+
+Jugador* Jugadores::obtenerJugadorPorNumero(unsigned int numeroJugador) {
+    return this->jugadores->obtener(numeroJugador);
+}
+
+
+
 
