@@ -53,31 +53,30 @@ void Carta::jugarCartaSniper(Jugador* jugadorActual) {
     }
 }
 
-std::string Carta::getNombreCarta(){
-	std::string nombreCarta;
-	switch(this->tipoCarta){
-	case BLINDAJE:
-		nombreCarta = "Blindaje";
-		break;
-	case RADAR:
-		nombreCarta = "Radar";
-		break;
-	case PARTIR:
-		nombreCarta = "Partir";
-		break;
-	case SNIPER:
-		nombreCarta = "Sniper";
-		break;
-	case LADRON:
-		nombreCarta = "Ladrón";
-		break;
-	case CARTA6:
-		nombreCarta = "Carta6";
-		break;
-	default:
-		break;
-	}
-	return nombreCarta;
-}
+std::string Carta::getNombreCarta() {
+    std::string nombreCarta;
+    switch (this->tipoCarta) {
+        case BLINDAJE:
+            nombreCarta = "Blindaje";
+            break;
+        case RADAR:
+            nombreCarta = "Radar";
+            break;
+        case PARTIR:
+            nombreCarta = "Partir";
+            break;
+        case SNIPER:
+            nombreCarta = "Sniper";
+            break;
+        case LADRON:
+            nombreCarta = "Ladrón";
+            break;
+        case CARTA6:
+            nombreCarta = "Carta6";
+            break;
+        default:
+            break;
+    }
+    return nombreCarta;
 }
 
