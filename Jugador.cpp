@@ -39,9 +39,32 @@ void Jugador::robarCarta(){
 	this->cartas->agregar(new Carta());
 }
 
-void Jugador::jugarCarta(nombreCarta nombreCarta){
+void Jugador::jugarCarta(nombreCarta nombreCarta) {
+    // Obtén la carta del jugador que desea jugar.
+    Carta* cartaAUsar = nullptr;
 
+    // Recorre la lista de cartas del jugador para encontrar la carta con el nombre especificado.
+    this->cartas->iniciarCursor();
+    while (this->cartas->avanzarCursor()) {
+        Carta* carta = this->cartas->obtenerCursor();
+        if (carta->getNombreCarta() == nombreCarta) {
+            cartaAUsar = carta;
+            break;
+        }
+    }
+
+    if (cartaAUsar != nullptr) {
+        // Ahora que tienes la carta a jugar, puedes usar su metodo
+        cartaAUsar->jugarCarta(this);
+        
+        // Luego, elimina la carta del jugador, ya que se ha jugado.
+        this->cartas->eliminar(cartaAUsar);
+    } else {
+        // La carta con el nombre especificado no fue encontrada en las cartas del jugador.// Lanza una excepción para indicar que el jugador no tiene esa carta.
+        throw std::runtime_error("Ups, no tienes esa carta.");
+    }
 }
+
 
 void Jugador::inicializarTesoros(){
 	this->tesoros->iniciarCursor();
