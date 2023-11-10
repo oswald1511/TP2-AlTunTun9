@@ -7,6 +7,7 @@ private:
 	char ficha;
 	Vector<int> * posicion;
 	int turnosDeshabilitado;
+	int numeroJugador;
 
 public:
 
@@ -51,6 +52,18 @@ public:
 	 * post: devuelve el valor de la ficha
 	 */
 	char getFicha();
+
+	/*
+	 * pre: recibe el numero de jugador
+	 * post: establece el numero de jugador
+	 */
+	void setJugador(int numeroJugador);
+
+	/*
+	 * pre: -
+	 * post: devuelve numero jugador
+	 */
+	int getJugador();
 };
 
 #endif /* CASILLERO_H_ */

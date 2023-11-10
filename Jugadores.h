@@ -48,6 +48,12 @@ public:
 	 * post: elimina un jugador cuando se queda sin tesoros
 	 */
 	void eliminarJugador();
+
+	/*
+	 * pre:-
+	 * post: devuelve la lista de jugadores
+	 */
+	Lista<Jugador*>* getJuagdores();
 };
 
 #endif /* JUGADORES_H_ */

@@ -8,7 +8,7 @@
 
 #define RECUPERANDO_CASILLA 5
 
-#define VACIO ' '
+#define VACIO '-'
 
 #define TESORO 'X'
 

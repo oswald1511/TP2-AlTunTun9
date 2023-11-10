@@ -1,6 +1,6 @@
 #include "Jugador.h"
 
-Jugador::Jugador(Vector<int>* dimensionesTablero, int cantidadTesoros){
+Jugador::Jugador(Vector<int>* dimensionesTablero, int cantidadTesoros, int numeroJugador){
 	this->tesoros = new Lista<Tesoro *>();
 	for(int i = 0; i < cantidadTesoros ; i++){
 		this->tesoros->agregar(new Tesoro());
@@ -12,6 +12,7 @@ Jugador::Jugador(Vector<int>* dimensionesTablero, int cantidadTesoros){
 	for(int i = 0; i < CANTIDAD_TESOROS_MINA ; i++){
 			this->tesorosMina->agregar(new TesoroMina());
 	}
+	this->numeroJugador = numeroJugador;
 }
 
 Jugador::~Jugador() {
@@ -23,9 +24,18 @@ Jugador::~Jugador() {
 	while(this->cartas->avanzarCursor()){
 		delete this->cartas->obtenerCursor();
 	}
+	this->tesorosMina->iniciarCursor();
+	while(this->tesorosMina->avanzarCursor()){
+		delete this->tesorosMina->obtenerCursor();
+	}
 	delete this->tesoros;
+	delete this->tesorosMina;
 	delete this->cartas;
 	delete this->tablero;
+}
+
+int Jugador::getNumeroJugador(){
+	return this->numeroJugador;
 }
 
 void Jugador::ponerEspia(Vector<int> * posicion){
@@ -56,7 +66,7 @@ void Jugador::inicializarTesoros(){
 	while(tesoros->avanzarCursor()){
 		Vector<int>* posicion = this->tablero->getPosicionAleatoria();
 		tesoros->obtenerCursor()->setPosicion(posicion);
-		this->tablero->setCasillero(posicion, 'T');
+		this->tablero->setCasillero(posicion, 'T', this->numeroJugador);
 	}
 }
 

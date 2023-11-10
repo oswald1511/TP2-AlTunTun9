@@ -1,6 +1,8 @@
 #include "Consola.h"
 #include "Jugadores.h"
 //#include "ExportarBmp.h"
+#include "Constantes.h"
+#include "TableroMaster.h"
 
 using namespace std;
 
@@ -16,6 +18,8 @@ int main(){
 
 	//consola->bienvenida();
 	Jugadores* jugadores = new Jugadores(dimensionesTablero, cantidadJugadores, cantidadTesoros);
+	TableroMaster* tableroGeneral = new TableroMaster(dimensionesTablero, jugadores);
+	consola->imprimirTablero(tableroGeneral->getTablero());
 
 	//ejemplo para ver si se agarra bien las cartas
 	/*
@@ -67,15 +71,22 @@ int main(){
 				tesoroMina = jugador1->getTesoroMinaDisponible();
 				Vector<int>* posicion = consola->pedirPosicion();
 				//primero chequear si hay fichas de otros jugadores
+				cout<<jugador1->getNumeroJugador()<<endl;
+				Casillero* casilleroOcupado = tableroGeneral->chequearPosicion(jugador1->getNumeroJugador(), posicion);
+				if(casilleroOcupado){
+					if(casilleroOcupado->getFicha() == TESORO){
+						cout << "El tesoro mina encontro un tesoro! Sera eliminado" << endl;
+					}
+				}
 				tesoroMina->setPosicion(posicion);
-				jugador1->getTablero()->setCasillero(posicion, TESORO_MINA);
+				jugador1->getTablero()->setCasillero(posicion, TESORO_MINA, jugador1->getNumeroJugador());
 				consola->imprimirTablero(jugador1->getTablero());
 				delete posicion;
 			}
 		}
 	}
 
-
+	delete tableroGeneral;
 	delete jugadores;
 	delete consola;
 	return 0;

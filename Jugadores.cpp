@@ -3,8 +3,8 @@
 Jugadores::Jugadores(Vector<int>* dimensionesTablero, int cantidadJugadores, int cantidadTesoros) {
 	this->cantidadJugadores = cantidadJugadores;
 	this->jugadores = new Lista<Jugador *>();
-	for(int i = 0; i < cantidadJugadores; i++){
-		this->jugadores->agregar(new Jugador(dimensionesTablero, cantidadTesoros));
+	for(int i = 1; i <= cantidadJugadores; i++){
+		this->jugadores->agregar(new Jugador(dimensionesTablero, cantidadTesoros, i));
 	}
 	this->inicializarTesoros();
 }
@@ -35,6 +35,10 @@ Jugador* Jugadores::getJugador(unsigned int numeroJugador){
 
 void Jugadores::eliminarJugador(){
 
+}
+
+Lista<Jugador*>* Jugadores::getJuagdores(){
+	return this->jugadores;
 }
 
 

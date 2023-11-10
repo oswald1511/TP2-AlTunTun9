@@ -18,6 +18,7 @@ private:
 	Lista<TesoroMina *> * tesorosMina;
 	Tablero* tablero;
 	unsigned int cantidadMaximaCartas;
+	int numeroJugador;
 
 public:
 
@@ -25,13 +26,19 @@ public:
 	 * pre: recibe la cantidad de tesoros indicada por el usuario
 	 * post: crea la lista de tesoros y de cartas
 	 */
-	Jugador(Vector<int>* dimensionesTablero, int cantidadTesoros);
+	Jugador(Vector<int>* dimensionesTablero, int cantidadTesoros, int numeroJugador);
 
 	/*
 	 * pre: -
 	 * post: elimina la memoria dinamica utilizada
 	 */
 	virtual ~Jugador();
+
+	/*
+	 * pre: -
+	 * post: devuelve el numero de jugador
+	 */
+	int getNumeroJugador();
 
 	/*
 	 * pre: recibe una posicion dentro de los limites del tablero
