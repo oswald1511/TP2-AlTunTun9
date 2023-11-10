@@ -1,5 +1,6 @@
 #ifndef VECTOR_H_
 #define VECTOR_H_
+#include <stddef.h>
 
 template<class T> class Vector{
 private:
@@ -59,7 +60,7 @@ template <class T> Vector<T>::Vector(unsigned int longitud){
 	this->longitud = longitud;
 	this->valores = new T[this->longitud];
 	for(unsigned int i = 0; i < this->longitud; i++){
-			this->valores[i] = 0;
+			this->valores[i] = T();
 	}
 }
 
