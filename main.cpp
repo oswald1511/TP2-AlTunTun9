@@ -1,6 +1,6 @@
-
 #include "Consola.h"
 #include "Jugadores.h"
+#include "ExportarBmp.h"
 
 using namespace std;
 
@@ -10,6 +10,10 @@ int main(){
 	Vector<int>* dimensionesTablero = consola->pedirTamanioTablero();
 	int cantidadJugadores = consola->pedirCantidadJugadores();
 	int cantidadTesoros = consola->pedirCantidadTesoros();
+
+	//creacion de los .bmp
+	ExportarBmp* bmp= new ExportarBmp(cantidadJugadores, dimensionesTablero);
+
 	//consola->bienvenida();
 	Jugadores* jugadores = new Jugadores(dimensionesTablero, cantidadJugadores, cantidadTesoros);
 
@@ -20,9 +24,9 @@ int main(){
 		for(int j = 0; j < 3; j++){
 			jugador->robarCarta();
 		}
-		Lista<Carta*>* cartas = jugador->getCartas();
-		cout << "Jugador " << i << ":" << endl;
-		consola->mostrarCartas(cartas);
+	//	Lista<Carta*>* cartas = jugador->getCartas();
+	//	cout << "Jugador " << i << ":" << endl;
+		//consola->mostrarCartas(cartas);
 	}
 	*/
 
