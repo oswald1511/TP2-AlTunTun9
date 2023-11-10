@@ -1,5 +1,6 @@
 #ifndef TESOROMINA_H_
 #define TESOROMINA_H_
+#include <cstdlib>
 #include "Vector.h"
 
 class TesoroMina {
@@ -24,6 +25,15 @@ public:
 	 * post: establece la posicion del tesoro mina
 	 */
 	void setPosicion(Vector<int>* posicion);
+
+	/*
+	 * pre:
+	 * post: devuelve la posicion del tesoro mina
+	 */
+	Vector<int>* getPosicion();
+
+
+
 };
 
 #endif /* TESOROMINA_H_ */

@@ -72,3 +72,32 @@ Tablero* Jugador::getTablero(){
 	return this->tablero;
 }
 
+Lista<TesoroMina*> * Jugador::getTesorosMina(){
+	return this->tesorosMina;
+}
+
+bool Jugador::quedanTesorosMina(){
+	bool quedanTesorosMina = false;
+	this->tesorosMina->iniciarCursor();
+	while(this->tesorosMina->avanzarCursor() && !quedanTesorosMina){
+		TesoroMina* tesoroMina = this->tesorosMina->obtenerCursor();
+		if(!tesoroMina->getPosicion()){
+			quedanTesorosMina = true;
+		}
+	}
+	return quedanTesorosMina;
+}
+
+TesoroMina* Jugador::getTesoroMinaDisponible(){
+	bool fin = false;
+	TesoroMina* tesoroMina;
+	this->tesorosMina->iniciarCursor();
+	while(this->tesorosMina->avanzarCursor() && !fin){
+		tesoroMina = this->tesorosMina->obtenerCursor();
+		if(!tesoroMina->getPosicion()){
+			fin = true;
+		}
+	}
+	return tesoroMina;
+}
+

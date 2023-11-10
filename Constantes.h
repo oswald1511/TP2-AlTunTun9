@@ -12,6 +12,8 @@
 
 #define TESORO 'X'
 
+#define TESORO_MINA 'M'
+
 #define CANTIDAD_MAXIMA_CARTAS 7
 
 #define CANTIDAD_TESOROS_MINA 3

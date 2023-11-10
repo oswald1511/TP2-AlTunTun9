@@ -1,6 +1,6 @@
 #include "Consola.h"
 #include "Jugadores.h"
-#include "ExportarBmp.h"
+//#include "ExportarBmp.h"
 
 using namespace std;
 
@@ -12,7 +12,7 @@ int main(){
 	int cantidadTesoros = consola->pedirCantidadTesoros();
 
 	//creacion de los .bmp
-	ExportarBmp* bmp= new ExportarBmp(cantidadJugadores, dimensionesTablero);
+	//ExportarBmp* bmp= new ExportarBmp(cantidadJugadores, dimensionesTablero);
 
 	//consola->bienvenida();
 	Jugadores* jugadores = new Jugadores(dimensionesTablero, cantidadJugadores, cantidadTesoros);
@@ -57,7 +57,22 @@ int main(){
 		cout<<"Se juega la carta y sigue el turno"<<endl;
 
 		//para chequear que se haya borrado la carta
-		consola->mostrarCartas(cartas1);
+		//consola->mostrarCartas(cartas1);
+
+		//TESOROS MINA
+		if(jugador1->quedanTesorosMina()){
+			bool usaTesoroMina = consola->tomaDecision("Desea colocar un tesoro mina?");
+			if(usaTesoroMina){
+				TesoroMina* tesoroMina;
+				tesoroMina = jugador1->getTesoroMinaDisponible();
+				Vector<int>* posicion = consola->pedirPosicion();
+				//primero chequear si hay fichas de otros jugadores
+				tesoroMina->setPosicion(posicion);
+				jugador1->getTablero()->setCasillero(posicion, TESORO_MINA);
+				consola->imprimirTablero(jugador1->getTablero());
+				delete posicion;
+			}
+		}
 	}
 
 

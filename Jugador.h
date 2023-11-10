@@ -80,6 +80,24 @@ public:
 	 * post: devuelve el tablero del jugador
 	 */
 	Tablero * getTablero();
+
+	/*
+	 * pre: -
+	 * post: devuelve la lista de tesoros mina
+	 */
+	Lista<TesoroMina*> * getTesorosMina();
+
+	/*
+	 * pre:
+	 * post: devuelve true le quedan tesoros mina por usar y, de lo contrario, false
+	 */
+	bool quedanTesorosMina();
+
+	/*
+	 * pre:
+	 * post: devuelve el proximo tesoro mina de la lista disponible
+	 */
+	TesoroMina* getTesoroMinaDisponible();
 };
 
 #endif /* JUGADOR_H_ */
