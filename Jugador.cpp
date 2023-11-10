@@ -39,8 +39,12 @@ void Jugador::robarCarta(){
 	this->cartas->agregar(new Carta());
 }
 
-void Jugador::jugarCarta(nombreCarta nombreCarta){
-
+void Jugador::jugarCarta(int posicion){
+	//por ahora solo la elimino de la lista para probar el flujo
+	Carta* carta = this->cartas->obtener(posicion);
+	carta->jugarCarta();
+	delete carta;
+	this->cartas->remover(posicion);
 }
 
 void Jugador::inicializarTesoros(){

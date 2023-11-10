@@ -154,3 +154,26 @@ void Consola::mostrarCartas(Lista<Carta*> * cartas){
 	}
 
 }
+
+bool Consola::tomaDecision(std::string consulta){
+	char respuesta;
+	bool decision;
+	std::cout << consulta << "(s/n): ";
+	std::cin >> respuesta;
+	if(respuesta == 's'){
+		decision = true;
+	} else {
+		decision = false;
+	}
+	return decision;
+}
+
+int Consola::seleccionarCarta(Lista<Carta*> * cartas){
+	this->mostrarCartas(cartas);
+	char entrada;
+	std::cout << "Segun la lista seleccione el numero de la carta que desea utilizar: ";
+	std::cin >> entrada;
+	int posicion = entrada - 48;
+	std::cout << "Selecciono la opcion: " << cartas->obtener(posicion)->getNombreCarta() << std::endl;
+	return posicion;
+}

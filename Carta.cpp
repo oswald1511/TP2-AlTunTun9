@@ -13,7 +13,7 @@ Carta::Carta(nombreCarta tipoCarta){
 Carta::~Carta(){
 }
 
-void Carta::jugarCarta(nombreCarta tipoCarta){
+void Carta::jugarCarta(){
 	//con switch(this->tipoCarta) estableccer lo que hace en este metodo cada una
 }
 
