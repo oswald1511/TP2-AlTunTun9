@@ -8,6 +8,10 @@ Jugador::Jugador(Vector<int>* dimensionesTablero, int cantidadTesoros){
 	this->cartas = new Lista<Carta *>();
 	this->cantidadMaximaCartas = CANTIDAD_MAXIMA_CARTAS;
 	this->tablero = new Tablero(dimensionesTablero);
+	this->tesorosMina = new Lista<TesoroMina*>();
+	for(int i = 0; i < CANTIDAD_TESOROS_MINA ; i++){
+			this->tesorosMina->agregar(new TesoroMina());
+	}
 }
 
 Jugador::~Jugador() {

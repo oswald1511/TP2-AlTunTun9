@@ -8,12 +8,14 @@
 #include "Vector.h"
 #include "Tablero.h"
 #include "Constantes.h"
+#include "TesoroMina.h"
 
 class Jugador {
 private:
 
 	Lista<Tesoro *> * tesoros;
 	Lista<Carta *> * cartas;
+	Lista<TesoroMina *> * tesorosMina;
 	Tablero* tablero;
 	unsigned int cantidadMaximaCartas;
 

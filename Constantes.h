@@ -14,4 +14,6 @@
 
 #define CANTIDAD_MAXIMA_CARTAS 7
 
+#define CANTIDAD_TESOROS_MINA 3
+
 #endif /* CONSTANTES_H_ */
