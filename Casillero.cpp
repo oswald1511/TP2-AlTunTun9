@@ -2,7 +2,7 @@
 
 Casillero::Casillero(Vector<int>* posicion){
     this->posicion = posicion;
-    this->ficha = '-';
+    this->ficha = VACIO;
     this->turnosDeshabilitado = 0; // Inicializa el contador de turnos deshabilitado en 0
     this->numeroJugador = 0; //inicializa en 0 ya que los jugadores van de 1 a X
 }
@@ -16,16 +16,16 @@ Vector<int> *Casillero::getPosicion() {
 }
 
 void Casillero::deshabilitar( int turnos) {
-    this->ficha = 'X';
+    this->ficha = DESHABILITADO;
     this->turnosDeshabilitado = turnos ; // Deshabilita el casillero por un número de turnos 
 }
 
 void Casillero::habilitar() {
-    if (this->ficha == 'X' && this->turnosDeshabilitado > 0) {
+    if (this->ficha == DESHABILITADO && this->turnosDeshabilitado > 0) {
         this->turnosDeshabilitado--;
 
         if (this->turnosDeshabilitado == 0) {
-            this->ficha = '-';
+            this->ficha = VACIO;
         }
     }
 }

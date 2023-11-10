@@ -1,6 +1,7 @@
 #ifndef CASILLERO_H_
 #define CASILLERO_H_
 #include "Vector.h"
+#include "Constantes.h"
 
 class Casillero {
 private:

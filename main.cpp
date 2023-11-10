@@ -71,16 +71,25 @@ int main(){
 				tesoroMina = jugador1->getTesoroMinaDisponible();
 				Vector<int>* posicion = consola->pedirPosicion();
 				//primero chequear si hay fichas de otros jugadores
-				cout<<jugador1->getNumeroJugador()<<endl;
 				Casillero* casilleroOcupado = tableroGeneral->chequearPosicion(jugador1->getNumeroJugador(), posicion);
 				if(casilleroOcupado){
+					int jugadorAtacado = casilleroOcupado->getJugador();
 					if(casilleroOcupado->getFicha() == TESORO){
-						cout << "El tesoro mina encontro un tesoro! Sera eliminado" << endl;
+						cout << "El tesoro mina encontro un tesoro del jugador ";
+					} else if (casilleroOcupado->getFicha() == ESPIA){
+						cout << "El tesoro mina encontro un espia del jugador ";
+					} else if (casilleroOcupado->getFicha() == TESORO_MINA){
+						cout << "El tesoro mina encontro un tesoro mina del juagdor ";
 					}
+					cout << jugadorAtacado << "!" << endl;
+					cout << "Sera eliminado y se inactiva la casilla" << endl;
+					tableroGeneral->deshabilitarCasillero(posicion);
+				} else {
+					tesoroMina->setPosicion(posicion);
+					jugador1->getTablero()->setCasillero(posicion, TESORO_MINA, jugador1->getNumeroJugador());
 				}
-				tesoroMina->setPosicion(posicion);
-				jugador1->getTablero()->setCasillero(posicion, TESORO_MINA, jugador1->getNumeroJugador());
-				consola->imprimirTablero(jugador1->getTablero());
+				tableroGeneral->actualizarTablero();
+				consola->imprimirTablero(tableroGeneral->getTablero());
 				delete posicion;
 			}
 		}

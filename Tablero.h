@@ -43,6 +43,12 @@ public:
 	void setCasillero(Vector<int> * posicion, char ficha, int numeroJugador);
 
 	/*
+	 * pre: recibe el puntero a casillero
+	 * post: establece el casillero
+	 */
+	void setCasillero(Casillero* casillero);
+
+	/*
 	 * pre: recibe la posicion dentro de los limites del tablero
 	 * post: devuelve la ficha en el casillero de la posicion indicada
 	 */

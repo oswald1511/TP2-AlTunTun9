@@ -66,7 +66,7 @@ void Jugador::inicializarTesoros(){
 	while(tesoros->avanzarCursor()){
 		Vector<int>* posicion = this->tablero->getPosicionAleatoria();
 		tesoros->obtenerCursor()->setPosicion(posicion);
-		this->tablero->setCasillero(posicion, 'T', this->numeroJugador);
+		this->tablero->setCasillero(posicion, TESORO, this->numeroJugador);
 	}
 }
 

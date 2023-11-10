@@ -177,3 +177,4 @@ int Consola::seleccionarCarta(Lista<Carta*> * cartas){
 	std::cout << "Selecciono la opcion: " << cartas->obtener(posicion)->getNombreCarta() << std::endl;
 	return posicion;
 }
+

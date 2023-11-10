@@ -8,6 +8,7 @@
 #ifndef TABLEROMASTER_H_
 #define TABLEROMASTER_H_
 
+#include <iostream>
 #include "Tablero.h"
 #include "Jugador.h"
 #include "Jugadores.h"
@@ -55,6 +56,18 @@ public:
 	 * post: establece el casillero en la posicion del casillero
 	 */
 	void setCasillero(Casillero* casillero);
+
+	/*
+	 * pre: recibe la posicion a deshabilitar
+	 * post: deshabilita el casillero por cierta cantidad de turnos
+	 */
+	void deshabilitarCasillero(Vector<int>* posicion);
+
+	/*
+	 * pre: -
+	 * post: actualiza el tablero con los casilleros de todos los jugadores
+	 */
+	void actualizarTablero();
 };
 
 #endif /* TABLEROMASTER_H_ */
