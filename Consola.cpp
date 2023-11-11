@@ -113,7 +113,7 @@ void Consola::bienvenida(){
 			"\n\n¡Que la búsqueda comience y que encuentren"
 			" los tesoros digitales que tanto anhelan! ¡Buena suerte y"
 			" disfruten de esta emocionante"
-			" odisea cibernética!" << std::endl;
+			" odisea cibernética!\n" << std::endl;
 }
 
 void Consola::imprimirTablero(Tablero* tablero){

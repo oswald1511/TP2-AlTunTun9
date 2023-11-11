@@ -39,7 +39,7 @@ int main(){
 
 			Vector<Lista<Carta*>*>* cartas = new Vector<Lista<Carta*>*>(cantidadJugadores);
 			jugador->get(i)->robarCarta();
-			jugador->get(i)->getCartas();
+			cartas->set(i,jugador->get(i)->getCartas());
 			bool juegaCarta = consola->tomaDecision("Desea jugar una carta?");
 			if (juegaCarta){
 				int posicionCarta = consola->seleccionarCarta(cartas->get(i));
