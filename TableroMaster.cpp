@@ -11,7 +11,6 @@ TableroMaster::TableroMaster(Vector<int>* dimensiones, Jugadores* jugadores) {
 	this->tablero = new Tablero(dimensiones);
 	this->jugadores = jugadores->getJuagdores();
 	this->actualizarTablero();
-
 }
 
 TableroMaster::~TableroMaster() {
@@ -22,7 +21,6 @@ Tablero* TableroMaster::getTablero(){
 	return this->tablero;
 }
 
-//no anda bien este todavia
 Casillero* TableroMaster::chequearPosicion (int jugadorActual, Vector<int>* posicion){
 	Casillero* casilleroOcupado = NULL;
 	Casillero* casillero = this->tablero->getCasillero(posicion);
@@ -31,20 +29,6 @@ Casillero* TableroMaster::chequearPosicion (int jugadorActual, Vector<int>* posi
 	}
 	return casilleroOcupado;
 }
-
-void TableroMaster::actualizarTesoros (){
-	this->jugadores->iniciarCursor();
-	while(this->jugadores->avanzarCursor()){
-		Jugador* jugador = this->jugadores->obtenerCursor();
-		Lista<Tesoro*>* tesoros = jugador->getTesoros();
-		tesoros->iniciarCursor();
-		while(tesoros->avanzarCursor()){
-			Vector<int>* posicion = tesoros->obtenerCursor()->getPosicion();
-			this->tablero->setCasillero(posicion, TESORO, jugador->getNumeroJugador());
-		}
-	}
-}
-
 
 void TableroMaster::actualizarTablero(){
 	this->jugadores->iniciarCursor();
@@ -76,5 +60,9 @@ void TableroMaster::setCasillero(Casillero* casillero){
 
 void TableroMaster::deshabilitarCasillero(Vector<int>* posicion){
 	this->tablero->getCasillero(posicion)->deshabilitar(PODER_MINA);
+	this->jugadores->iniciarCursor();
+	while(this->jugadores->avanzarCursor()){
+		this->jugadores->obtenerCursor()->getTablero()->getCasillero(posicion)->deshabilitar(PODER_MINA);
+	}
 }
 
