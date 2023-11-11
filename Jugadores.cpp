@@ -37,7 +37,7 @@ void Jugadores::eliminarJugador(){
 
 }
 
-Lista<Jugador*>* Jugadores::getJuagdores(){
+Lista<Jugador*>* Jugadores::getJugadores(){
 	return this->jugadores;
 }
 
