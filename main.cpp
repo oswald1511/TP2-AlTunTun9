@@ -1,6 +1,6 @@
 #include "Consola.h"
 #include "Jugadores.h"
-//#include "ExportarBmp.h"
+#include "ExportarBmp.h"
 #include "Constantes.h"
 #include "TableroMaster.h"
 
@@ -14,14 +14,23 @@ int main(){
 	int cantidadTesoros = consola->pedirCantidadTesoros();
 
 	//creacion de los .bmp
-	//ExportarBmp* bmp= new ExportarBmp(cantidadJugadores, dimensionesTablero);
+	ExportarBmp* bmp= new ExportarBmp(cantidadJugadores, dimensionesTablero);
+	consola->bienvenida();
 
-	//consola->bienvenida();
 	Jugadores* jugadores = new Jugadores(dimensionesTablero, cantidadJugadores, cantidadTesoros);
 	TableroMaster* tableroGeneral = new TableroMaster(dimensionesTablero, jugadores);
 
 	//para probar a ver donde estan los tesoros
-	consola->imprimirTablero(tableroGeneral->getTablero());
+	//consola->imprimirTablero(tableroGeneral->getTablero());
+
+	while(cantidadJugadores < 1){
+
+		for (int i =1; i<= cantidadJugadores; i++){
+			Vector <Jugador*> *jugador;
+			jugador->set(i,jugadores->getJugador(i));
+			jugador->get(i)->robarCarta();
+		}
+	}
 	{
 		//prueba turno
 		Jugador* jugador1 = jugadores->getJugador(1);

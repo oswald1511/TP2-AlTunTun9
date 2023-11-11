@@ -1,11 +1,5 @@
-/*
- * TableroMaster.cpp
- *
- *  Created on: 10/11/2023
- *      Author: algo2
- */
-
 #include "TableroMaster.h"
+#include "Tablero.h"
 
 TableroMaster::TableroMaster(Vector<int>* dimensiones, Jugadores* jugadores) {
 	this->tablero = new Tablero(dimensiones);
