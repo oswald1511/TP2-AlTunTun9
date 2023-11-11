@@ -8,14 +8,13 @@ using namespace std;
 
 int main(){
 	srand(time(NULL));
+
+
 	Consola* consola = new Consola();
+	consola->bienvenida();
 	Vector<int>* dimensionesTablero = consola->pedirTamanioTablero();
 	int cantidadJugadores = consola->pedirCantidadJugadores();
 	int cantidadTesoros = consola->pedirCantidadTesoros();
-
-
-
-	consola->bienvenida();
 
 	Jugadores* jugadores = new Jugadores(dimensionesTablero, cantidadJugadores, cantidadTesoros);
 	TableroMaster* tableroGeneral = new TableroMaster(dimensionesTablero, jugadores);
@@ -23,23 +22,23 @@ int main(){
 	//creacion de los .bmp
 	ExportarBmp* bmp= new ExportarBmp(cantidadJugadores, dimensionesTablero);
 
-
 	//para probar a ver donde estan los tesoros
 	//consola->imprimirTablero(tableroGeneral->getTablero());
 	Vector <Jugador*> *jugador = new Vector<Jugador*>(cantidadJugadores);
 	for (int i =1; i<= cantidadJugadores; i++){
 
 		jugador->set(i,jugadores->getJugador(i));
-		for(int j=1; j <= jugador->get(i)->getTesoros()->contarElementos(); j++){
+		for(unsigned int j=1; j <= jugador->get(i)->getTesoros()->contarElementos(); j++){
 			bmp->moverTesoro(jugador->get(i)->getTesoros()->obtener(j)->getPosicion(),jugador->get(i)->getTesoros()->obtener(j)->getPosicion(),i);
 		}
 	}
 
-	while(cantidadJugadores < 1){
+	while(cantidadJugadores > 1){
 
 		for (int i =1; i<= cantidadJugadores; i++){
-			jugador->get(i)->robarCarta();
+
 			Vector<Lista<Carta*>*>* cartas = new Vector<Lista<Carta*>*>(cantidadJugadores);
+			jugador->get(i)->robarCarta();
 			jugador->get(i)->getCartas();
 			bool juegaCarta = consola->tomaDecision("Desea jugar una carta?");
 			if (juegaCarta){

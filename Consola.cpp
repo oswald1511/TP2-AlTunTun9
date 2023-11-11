@@ -69,7 +69,7 @@ void Consola::imprimirPosicion(Vector<int>* posicion){
 int Consola::pedirCantidadJugadores(){
 
 	int cantidadJugadores;
-	std::cout << "Ingrese la cantdad de jugadores: ";
+	std::cout << "Ingrese la cantidad de jugadores: ";
 	std::cin >> cantidadJugadores;
 
 	return cantidadJugadores;
