@@ -1,9 +1,10 @@
 #include "TableroMaster.h"
 #include "Tablero.h"
+#include "Jugadores.h"
 
 TableroMaster::TableroMaster(Vector<int>* dimensiones, Jugadores* jugadores) {
 	this->tablero = new Tablero(dimensiones);
-	this->jugadores = jugadores->getJuagdores();
+	this->jugadores = jugadores->getJugadores();
 	this->actualizarTablero();
 }
 

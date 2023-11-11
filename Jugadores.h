@@ -53,7 +53,7 @@ public:
 	 * pre:-
 	 * post: devuelve la lista de jugadores
 	 */
-	Lista<Jugador*>* getJuagdores();
+	Lista<Jugador*>* getJugadores();
 };
 
 #endif /* JUGADORES_H_ */
