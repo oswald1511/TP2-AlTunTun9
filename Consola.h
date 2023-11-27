@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include <math.h>
 #include "Vector.h"
 #include "Tablero.h"
 #include "Lista.h"

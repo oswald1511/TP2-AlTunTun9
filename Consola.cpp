@@ -17,17 +17,17 @@ void Consola::validarPosicion(Vector<int>* posicion){
 }
 
 Vector<int>* Consola::pedirTamanioTablero(){
-	unsigned int x, y, z;
+	int x, y, z;
 	Vector<int>* dimensiones = new Vector<int>(3);
 	std:: cout << "Ingrese el largo del tablero (X): ";
 	std::cin >> x;
-	dimensiones->set(1,x);
+	dimensiones->set(1,abs(x));
 	std:: cout << "Ingrese el ancho del tablero (Y): ";
 	std::cin >> y;
-	dimensiones->set(2,y);
+	dimensiones->set(2,abs(y));
 	std:: cout << "Ingrese el alto del tablero (Z): ";
 	std::cin >> z;
-	dimensiones->set(3,z);
+	dimensiones->set(3,abs(z));
 	this->dimensionesTablero = dimensiones;
 	return dimensiones;
 }

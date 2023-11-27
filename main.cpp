@@ -11,7 +11,7 @@ int main(){
 
 
 	Consola* consola = new Consola();
-	consola->bienvenida();
+	//consola->bienvenida();
 	Vector<int>* dimensionesTablero = consola->pedirTamanioTablero();
 	int cantidadJugadores = consola->pedirCantidadJugadores();
 	int cantidadTesoros = consola->pedirCantidadTesoros();
@@ -23,7 +23,8 @@ int main(){
 	ExportarBmp* bmp= new ExportarBmp(cantidadJugadores, dimensionesTablero);
 
 	//para probar a ver donde estan los tesoros
-	//consola->imprimirTablero(tableroGeneral->getTablero());
+	//esta mal, los planes que dice que imprime no son el eje z
+	consola->imprimirTablero(tableroGeneral->getTablero());
 	Vector <Jugador*> *jugador = new Vector<Jugador*>(cantidadJugadores);
 	for (int i =1; i<= cantidadJugadores; i++){
 
@@ -37,15 +38,17 @@ int main(){
 
 		for (int i =1; i<= cantidadJugadores; i++){
 
+			cout << "JUGADOR " << i << endl;
 			Vector<Lista<Carta*>*>* cartas = new Vector<Lista<Carta*>*>(cantidadJugadores);
 			jugador->get(i)->robarCarta();
 			cartas->set(i,jugador->get(i)->getCartas());
 			bool juegaCarta = consola->tomaDecision("Desea jugar una carta?");
 			if (juegaCarta){
+				//hay que validar que la opcion del usuario no se pase de las opciones que hay de cartas
 				int posicionCarta = consola->seleccionarCarta(cartas->get(i));
 				jugador->get(i)->jugarCarta(posicionCarta);
+				cout<<"Se juega la carta y sigue el turno"<<endl;
 			}
-			cout<<"Se juega la carta y sigue el turno"<<endl;
 
 			//tesoros mina
 			if(jugador->get(i)->quedanTesorosMina()){
