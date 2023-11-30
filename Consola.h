@@ -97,7 +97,11 @@ public:
 	 */
 	int seleccionarCarta(Lista<Carta*> * cartas);
 
-
+	/*
+	 * pre:
+	 * pos: da un mensaje de despedida al usuario
+	 */
+	void despedida();
 
 };
 
