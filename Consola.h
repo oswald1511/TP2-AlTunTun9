@@ -96,11 +96,8 @@ public:
 	 * pos: devuelve la posicion de la lista en la que se encuentra la carta elegida
 	 */
 	int seleccionarCarta(Lista<Carta*> * cartas);
-	/*
-	 * pre:
-	 * pos:da un mensaje de despedida a los usuarios
-	 */
-	void despedida();
+
+
 
 };
 

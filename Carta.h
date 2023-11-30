@@ -3,10 +3,6 @@
 
 #include <cstdlib>
 #include <string>
-#include "Jugadores.h"
-#include "Jugador.h"
-#include "Tesoro.h"
-#include "Vector.h"
 
 
 enum nombreCarta {BLINDAJE, RADAR, PARTIR, LADRON, SNIPER, ROBAR};
@@ -47,42 +43,6 @@ public:
 	 * post: devuelve el tipo de carta
 	 */
 	std::string getNombreCarta();
-
-	/*
-	 * pre:
-	 * pos:
-	 */
-	void jugarCartaBlindaje();
-
-	/*
-	 * pre:
-	 * pos:
-	 */
-	void jugarCartaRadar();
-
-	/*
-	 * pre:
-	 * pos:
-	 */
-	void jugarCartaPartirTesoro(Jugador* jugadorActual, Vector<int>* posicionNueva);
-
-	/*
-	 * pre:
-	 * pos:
-	 */
-	void jugarCartaSniper(Jugador* jugadorActual, Jugadores* jugadores);
-
-	/*
-	 * pre:
-	 * pos:
-	 */
-	void jugarCartaLadron();
-
-	/*
-	 * pre:
-	 * pos:
-	 */
-	void jugarCartaPerderTurno();
 
 
 };

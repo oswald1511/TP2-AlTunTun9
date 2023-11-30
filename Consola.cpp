@@ -178,11 +178,3 @@ int Consola::seleccionarCarta(Lista<Carta*> * cartas){
 	return posicion;
 }
 
-void Consola::despedida(){
-	std::cout << "Con líneas de código como compañeras y algoritmos como desafíos,"
-			" llegamos al final de esta odisea digital. Gracias por sumergirte en"
-			" el mundo que creé con cada función y bucle. Que este código siga"
-			" ejecutándose en tu memoria como una experiencia inolvidable. ¡Hasta"
-			" la próxima compilación de diversión! 👾💾 ¡Adiós, jugador, y que tu"
-			" camino esté siempre libre de errores!" << std::endl;
-}
