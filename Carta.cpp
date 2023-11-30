@@ -13,11 +13,34 @@ Carta::Carta(nombreCarta tipoCarta){
 Carta::~Carta(){
 }
 
-void Carta::jugarCarta(){
-	//con switch(this->tipoCarta) estableccer lo que hace en este metodo cada una
+void Carta::jugarCarta(Jugador * jugador){
+
+	switch(this->tipoCarta){
+		case(BLINDAJE):
+
+			break;
+		case(RADAR):
+
+			break;
+		case(PARTIR):
+
+			break;
+		case(LADRON):
+
+			break;
+		case(SNIPER):
+
+			break;
+		case(ROBAR):
+
+			break;
+		default:
+			break;
+		}
 }
-/* void Carta::jugarCartaSniper(Jugador* jugadorActual, Jugadores* jugadores) {
-    int cantidadJugadores = jugadores->obtenerCantidadTotalDeJugadores();
+
+void Carta::jugarCartaSniper(Jugador* jugadorActual, Jugadores* jugadores) {
+    int cantidadJugadores = jugadores->cantidadJugadores;
     
     if (cantidadJugadores > 1) {
         int jugadorAleatorio;
@@ -25,7 +48,7 @@ void Carta::jugarCarta(){
             jugadorAleatorio = rand() % cantidadJugadores;
         } while (jugadorAleatorio == jugadorActual->getNumeroJugador());
 
-        Jugador* otroJugador = jugadores->obtenerJugadorPorNumero(jugadorAleatorio);
+        Jugador* otroJugador = jugadores->getJugador(jugadorAleatorio);
 
         if (otroJugador != nullptr) {
             // Obtén la lista de tesoros del otro jugador.
@@ -34,7 +57,7 @@ void Carta::jugarCarta(){
             if (tesoros->contarElementos() > 0) {
                 // Elige al azar un tesoro del otro jugador para eliminar.
                 int indiceAleatorio = rand() % tesoros->contarElementos();
-                Tesoro* tesoroAEliminar = tesoros->obtenerElementoEnPosicion(indiceAleatorio);
+                Tesoro* tesoroAEliminar = tesoros->obtener(indiceAleatorio);
 
                 // Elimina el tesoro del otro jugador.
                 otroJugador->getTablero()->removerTesoro(tesoroAEliminar);
@@ -42,18 +65,18 @@ void Carta::jugarCarta(){
             }
         }
     }
+}
 
 
 
 void Carta::jugarCartaLadron(Jugador* jugadorActual, Jugadores* jugadores) {
-    int cantidadJugadores = jugadores->obtenerCantidadTotalDeJugadores();
-    if (cantidadJugadores > 1) {
-        int jugadorAleatorio;
-        do {
-            jugadorAleatorio = rand() % cantidadJugadores;
-        } while (jugadorAleatorio == jugadorActual->getNumeroJugador());
-
-        Jugador* otroJugador = jugadores->obtenerJugadorPorNumero(jugadorAleatorio);
+    	int cantidadJugadores = jugadores->obtenerCantidadTotalDeJugadores();
+    	if (cantidadJugadores > 1) {
+    		int jugadorAleatorio;
+    			do {
+    			jugadorAleatorio = rand() % cantidadJugadores;
+    			} while (jugadorAleatorio == jugadorActual->getNumeroJugador());
+    			Jugador* otroJugador = jugadores->obtenerJugadorPorNumero(jugadorAleatorio);
 
         if (otroJugador != nullptr && otroJugador->getCartas()->contarElementos() > 0) {
             Carta* cartaRobada = otroJugador->getCartas()->obtenerElementoAleatorio();
@@ -62,9 +85,30 @@ void Carta::jugarCartaLadron(Jugador* jugadorActual, Jugadores* jugadores) {
         }
     }
 }
+
+void Carta::jugarCartaPartirTesoro(Jugador* jugadorActual, Vector<int>* posicionNueva){
+
+	Tesoro * tesoroPartido = new Tesoro(posicionNueva);
+	jugadorActual->getTesoros()->agregar(tesoroPartido);
+	delete tesoroPartido;
+
 }
+
+void Carta::jugarCartaBlindaje(){
+
+
 }
-*/
+
+void Carta::jugarCartaPerderTurno(){
+
+
+}
+
+void Carta::jugarCartaRadar(){
+
+
+}
+
 std::string Carta::getNombreCarta(){
 	std::string nombreCarta;
 	switch(this->tipoCarta){
@@ -91,4 +135,5 @@ std::string Carta::getNombreCarta(){
 	}
 	return nombreCarta;
 }
+
 

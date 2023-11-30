@@ -105,6 +105,12 @@ public:
 	 * post: devuelve el proximo tesoro mina de la lista disponible
 	 */
 	TesoroMina* getTesoroMinaDisponible();
+
+	/*
+	 * pre: recibe un vector con la posicion en la que se pone el tesoro
+	 * pos: crea un nuevo tesoro
+	 */
+
 };
 
 #endif /* JUGADOR_H_ */

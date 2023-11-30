@@ -24,7 +24,7 @@ Casillero* TableroMaster::chequearPosicion (int jugadorActual, Vector<int>* posi
 	}
 	return casilleroOcupado;
 }
-
+//da las coordenadas en el orden zyx y no en xyz
 void TableroMaster::actualizarTablero(){
 	this->jugadores->iniciarCursor();
 	while(this->jugadores->avanzarCursor()){

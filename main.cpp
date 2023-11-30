@@ -14,6 +14,7 @@ int main(){
 	//consola->bienvenida();
 	Vector<int>* dimensionesTablero = consola->pedirTamanioTablero();
 	int cantidadJugadores = consola->pedirCantidadJugadores();
+	//verificar que la cantidad de jugadores sea menor o igual a la cantidad
 	int cantidadTesoros = consola->pedirCantidadTesoros();
 
 	Jugadores* jugadores = new Jugadores(dimensionesTablero, cantidadJugadores, cantidadTesoros);
@@ -23,7 +24,7 @@ int main(){
 	ExportarBmp* bmp= new ExportarBmp(cantidadJugadores, dimensionesTablero);
 
 	//para probar a ver donde estan los tesoros
-	//esta mal, los planes que dice que imprime no son el eje z
+	//esta mal, los planos que dice que imprime no son el eje z
 	consola->imprimirTablero(tableroGeneral->getTablero());
 	Vector <Jugador*> *jugador = new Vector<Jugador*>(cantidadJugadores);
 	for (int i =1; i<= cantidadJugadores; i++){
@@ -84,6 +85,8 @@ int main(){
 			}
 		}
 	}
+	//consola->despedida();
+
 	delete bmp;
 	delete tableroGeneral;
 	delete jugador;
