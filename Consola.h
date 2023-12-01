@@ -8,6 +8,7 @@
 #include "Tablero.h"
 #include "Lista.h"
 #include "Carta.h"
+#include "Jugador.h"
 
 class Consola {
 
@@ -102,6 +103,12 @@ public:
 	 * pos: da un mensaje de despedida al usuario
 	 */
 	void despedida();
+
+	/*
+	 * pre:recibe la lista de jugadores y el jugador
+	 *
+	 */
+	int mostrarTesoros(Jugador* jugador);
 
 };
 

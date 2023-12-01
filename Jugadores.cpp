@@ -33,7 +33,9 @@ Jugador* Jugadores::getJugador(unsigned int numeroJugador){
 	return this->jugadores->obtener(numeroJugador);
 }
 
-void Jugadores::eliminarJugador(){
+void Jugadores::eliminarJugador(int jugador){
+	jugadores->obtener(jugador)->~Jugador();
+	this->cantidadJugadores--;
 
 }
 

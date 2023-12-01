@@ -22,8 +22,8 @@ int main(){
 	//creacion de los .bmp
 	ExportarBmp* bmp= new ExportarBmp(cantidadJugadores, dimensionesTablero);
 
-	//para probar a ver donde estan los tesoros(esta mal, los planes que dice que imprime no son el eje z)
-	consola->imprimirTablero(tableroGeneral->getTablero());
+	//para probar a ver donde estan los tesoros(esta mal, los planos los imprime en el orden zyx, no en el xyz)
+	//consola->imprimirTablero(tableroGeneral->getTablero());
 	Vector <Jugador*> *jugador = new Vector<Jugador*>(cantidadJugadores);
 	for (int i =1; i<= cantidadJugadores; i++){
 
@@ -36,8 +36,20 @@ int main(){
 	while(cantidadJugadores > 1){
 
 		for (int i =1; i<= cantidadJugadores; i++){
-
 			cout << "JUGADOR " << i << endl;
+			//mover tesoro
+			if(jugador->get(i)->getTesoros()->contarElementos() >= 1){
+				bool mueveTesoro = consola->tomaDecision("Desea mover un tesoro?");
+				if(mueveTesoro){
+
+				}
+			}
+			else{
+				jugadores->eliminarJugador(i);
+				cantidadJugadores--;
+			}
+
+			//las cartas no hacen nada, falto implementarlas
 			Vector<Lista<Carta*>*>* cartas = new Vector<Lista<Carta*>*>(cantidadJugadores);
 			jugador->get(i)->robarCarta();
 			cartas->set(i,jugador->get(i)->getCartas());
@@ -79,8 +91,11 @@ int main(){
 					tableroGeneral->actualizarTablero();
 
 					delete posicion;
+
+
 				}
 			}
+
 		}
 	}
 	//consola->despedida();

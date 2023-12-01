@@ -78,7 +78,7 @@ int Consola::pedirCantidadJugadores(){
 
 int Consola::pedirCantidadTesoros(){
 	int cantidadTesoros;
-	std::cout << "Ingrese la cantdad de tesoros: ";
+	std::cout << "Ingrese la cantidad de tesoros: ";
 	std::cin >> cantidadTesoros;
 	return cantidadTesoros;
 }
@@ -116,28 +116,31 @@ void Consola::bienvenida(){
 			" odisea cibernética!\n" << std::endl;
 }
 
-void Consola::imprimirTablero(Tablero* tablero){
-	Lista<Lista<Lista<Casillero *>*>*>* casilleros = tablero->getTablero();
-	casilleros->iniciarCursor();
-	int i = 1;
-	while(casilleros->avanzarCursor()){
-		std::cout << "Plano " << i << ":" << std::endl;
-		Lista<Lista<Casillero*>*>* fila = casilleros->obtenerCursor();
-		fila->iniciarCursor();
-		while(fila->avanzarCursor()){
-			Lista<Casillero*>* columna = fila->obtenerCursor();
-			columna->iniciarCursor();
-			while(columna->avanzarCursor()){
-				Casillero* casillero = columna->obtenerCursor();
-				char ficha = casillero->getFicha();
-				std::cout << ficha << " ";
-			}
-			std::cout << "\n";
-		}
-		std::cout << "\n";
-		i++;
-	}
+/*
+void Consola::imprimirTablero(Tablero* tablero) {
+    Lista<Lista<Lista<Casillero *>*>*>* casilleros = tablero->getTablero();
+
+    for (int z = 0; z < casilleros->contarElementos(); ++z) {
+        std::cout << "Capa " << z + 1 << ":" << std::endl;
+
+        Lista<Lista<Casillero*>*>* capa = casilleros->obtener(z);
+
+        for (int y = 0; y < capa->contarElementos(); ++y) {
+            Lista<Casillero*>* fila = capa->obtener(y);
+
+            for (unsigned int x = 0; x <= fila->contarElementos(); x++) {
+                Casillero* casillero = fila->obtener(x);
+                char ficha = casillero->getFicha();
+                std::cout << ficha << " ";
+            }
+
+            std::cout << "\n";
+        }
+
+        std::cout << "\n";
+    }
 }
+*/
 
 
 Vector<int> * Consola::getDimensiones(){
@@ -186,4 +189,18 @@ void Consola::despedida(){
 			" ejecutándose en tu memoria como una experiencia inolvidable. "
 			"¡Hasta la próxima compilación de diversión! 👾💾 ¡Adiós, jugador, y que"
 			" tu camino esté siempre libre de errores!" << std::endl;
+}
+
+void Consola::mostrarTesoros(Jugador* jugador){
+
+	std::cout << "Sus tesoros son:" << std::endl;
+	jugador->getTesoros()->iniciarCursor();
+	int i = 1;
+	while(jugador->getTesoros()->avanzarCursor()){
+		std::cout << "Tesoro " << i << std::endl;
+		Tesoro* tesoro = jugador->getTesoros()->obtenerCursor();
+		std::cout << tesoro->getPosicion()->get(1)<<","<<tesoro->getPosicion()->get(2)<<","<<tesoro->getPosicion()->get(3)<< std::endl;;
+		i++;
+	}
+
 }

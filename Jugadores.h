@@ -2,14 +2,11 @@
 #define JUGADORES_H_
 #include "Jugador.h"
 #include "Lista.h"
-#include "Tablero.h"
 
 class Jugadores {
 private:
 	Lista<Jugador*> * jugadores;
 	int cantidadJugadores;
-
-
 
 public:
 
@@ -45,9 +42,9 @@ public:
 
 	/*
 	 * pre:
-	 * post: elimina un jugador cuando se queda sin tesoros
+	 * post: elimina un jugador
 	 */
-	void eliminarJugador();
+	void eliminarJugador(int jugador);
 
 	/*
 	 * pre:-
