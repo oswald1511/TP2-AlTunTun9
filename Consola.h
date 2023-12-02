@@ -110,6 +110,8 @@ public:
 	 */
 	int mostrarTesoros(Jugador* jugador);
 
+	Vector<int>* elegirDireccion();
+
 };
 
 #endif /* CONSOLA_H_ */

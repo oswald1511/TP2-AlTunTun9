@@ -60,6 +60,8 @@ public:
 	 */
 	Vector<int>* getPosicionAleatoria();
 
+	void validarMovimiento(Vector<int>* posicion, Vector<int>* direccion);
+
 };
 
 #endif /* TABLERO_H_ */

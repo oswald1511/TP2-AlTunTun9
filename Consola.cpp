@@ -191,7 +191,7 @@ void Consola::despedida(){
 			" tu camino esté siempre libre de errores!" << std::endl;
 }
 
-void Consola::mostrarTesoros(Jugador* jugador){
+int Consola::mostrarTesoros(Jugador* jugador){
 
 	std::cout << "Sus tesoros son:" << std::endl;
 	jugador->getTesoros()->iniciarCursor();
@@ -202,5 +202,60 @@ void Consola::mostrarTesoros(Jugador* jugador){
 		std::cout << tesoro->getPosicion()->get(1)<<","<<tesoro->getPosicion()->get(2)<<","<<tesoro->getPosicion()->get(3)<< std::endl;;
 		i++;
 	}
+	std::cout << "Elija el numero de tesoro que quiere mover" << std::endl;
+	int numeroTesoro;
+	std::cin >> numeroTesoro;
+	return numeroTesoro;
 
+}
+
+Vector<int> * Consola::elegirDireccion(){
+
+	char eleccion;
+	Vector<int>* direccion = new Vector<int>(3);
+	std::cout << "Ingrese la dirección (U, D, L, R, F, B) para mover la ficha: ";
+	std::cin >> eleccion;
+
+	switch (eleccion) {
+	        case 'U':
+	        case 'u':
+	        	direccion->set(1,0);
+	        	direccion->set(2,0);
+	        	direccion->set(3,-1);  // Mover hacia arriba
+	            break;
+	        case 'D':
+	        case 'd':
+	        	direccion->set(1,0);
+	        	direccion->set(2,0);
+	        	direccion->set(3,1);  // Mover hacia abajo
+	            break;
+	        case 'L':
+	        case 'l':
+	        	direccion->set(1,-1);  // Mover hacia la izquierda
+		        direccion->set(2,0);
+		        direccion->set(3,0);
+	            break;
+	        case 'R':
+	        case 'r':
+	        	direccion->set(1,1);  // Mover hacia la derecha
+		        direccion->set(2,0);
+		        direccion->set(3,0);
+	            break;
+	        case 'F':
+	        case 'f':
+	        	direccion->set(1,0);
+	        	direccion->set(2,-1);  // Mover hacia adelante
+		        direccion->set(3,0);
+	            break;
+	        case 'B':
+	        case 'b':
+	        	direccion->set(1,0);
+	        	direccion->set(2,1);  // Mover hacia atrás
+		        direccion->set(3,0);
+	            break;
+	        default:
+	            std::cout << "Dirección no válida." << std::endl;
+
+	    }
+	return direccion;
 }

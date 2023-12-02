@@ -41,7 +41,11 @@ int main(){
 			if(jugador->get(i)->getTesoros()->contarElementos() >= 1){
 				bool mueveTesoro = consola->tomaDecision("Desea mover un tesoro?");
 				if(mueveTesoro){
+					int tesoroAMover = consola->mostrarTesoros(jugadores->getJugador(i));
+					Vector<int> * direccion = consola->elegirDireccion();
+					jugador->get(i)->getTablero()->validarMovimiento(jugador->get(i)->getTesoros()->obtener(tesoroAMover)->getPosicion(),direccion);
 
+					//VOY POR ACA
 				}
 			}
 			else{
@@ -95,6 +99,7 @@ int main(){
 
 				}
 			}
+			//espias
 
 		}
 	}

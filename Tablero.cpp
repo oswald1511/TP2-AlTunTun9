@@ -73,3 +73,19 @@ Vector<int>* Tablero::getPosicionAleatoria(){
 	return posicion;
 }
 
+void Tablero::validarMovimiento(Vector<int>* posicion, Vector<int>* direccion){
+
+	// Validar el movimiento dentro del tablero
+	if (posicion->get(1) + direccion->get(1) > 0 && posicion->get(1) + direccion->get(1) <= this->dimensiones->get(1) &&
+	posicion->get(2) + direccion->get(2) > 0 && posicion->get(2) + direccion->get(2) <= this->dimensiones->get(2) &&
+	posicion->get(3) + direccion->get(3) > 0 && posicion->get(3) + direccion->get(3) <= this->dimensiones->get(3)) {
+
+	    posicion->set(1,posicion->get(1)-direccion->get(1));
+	    posicion->set(2,posicion->get(2)-direccion->get(2));
+	    posicion->set(3,posicion->get(3)-direccion->get(3));
+	}
+	else{
+		throw "Movimiento no válido.";
+	}
+}
+
