@@ -1,5 +1,6 @@
 #ifndef TABLERO_H_
 #define TABLERO_H_
+#include <iostream>
 #include <cstdlib>
 #include "Lista.h"
 #include "Casillero.h"
@@ -60,7 +61,7 @@ public:
 	 */
 	Vector<int>* getPosicionAleatoria();
 
-	void validarMovimiento(Vector<int>* posicion, Vector<int>* direccion);
+	Vector<int> * validarMovimiento(Vector<int>* posicion, Vector<int>* direccion);
 
 };
 

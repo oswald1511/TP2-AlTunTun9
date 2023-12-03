@@ -16,6 +16,7 @@ int main(){
 	int cantidadJugadores = consola->pedirCantidadJugadores();
 	int cantidadTesoros = consola->pedirCantidadTesoros();
 
+	//verificar que en la creacion de los tesoros no se pongan 2 tesoros en el mismo lugar
 	Jugadores* jugadores = new Jugadores(dimensionesTablero, cantidadJugadores, cantidadTesoros);
 	TableroMaster* tableroGeneral = new TableroMaster(dimensionesTablero, jugadores);
 
@@ -37,15 +38,18 @@ int main(){
 
 		for (int i =1; i<= cantidadJugadores; i++){
 			cout << "JUGADOR " << i << endl;
+
 			//mover tesoro
 			if(jugador->get(i)->getTesoros()->contarElementos() >= 1){
 				bool mueveTesoro = consola->tomaDecision("Desea mover un tesoro?");
 				if(mueveTesoro){
 					int tesoroAMover = consola->mostrarTesoros(jugadores->getJugador(i));
+					Vector<int>* posicionActual = new Vector<int>(3);
+					posicionActual->igual(posicionActual, jugador->get(i)->getTesoros()->obtener(tesoroAMover)->getPosicion());
 					Vector<int> * direccion = consola->elegirDireccion();
-					jugador->get(i)->getTablero()->validarMovimiento(jugador->get(i)->getTesoros()->obtener(tesoroAMover)->getPosicion(),direccion);
-
-					//VOY POR ACA
+					Vector<int> * posicionNueva = jugador->get(i)->getTablero()->validarMovimiento(jugador->get(i)->getTesoros()->obtener(tesoroAMover)->getPosicion(),direccion);
+					jugador->get(i)->getTesoros()->obtener(tesoroAMover)->setPosicion(posicionNueva);
+					bmp->moverTesoro(posicionActual ,posicionNueva, i);
 				}
 			}
 			else{
@@ -53,7 +57,7 @@ int main(){
 				cantidadJugadores--;
 			}
 
-			//las cartas no hacen nada, falto implementarlas
+			//el jugador puede robar cartas y elegir si usarlas, pero no tienen utilidad
 			Vector<Lista<Carta*>*>* cartas = new Vector<Lista<Carta*>*>(cantidadJugadores);
 			jugador->get(i)->robarCarta();
 			cartas->set(i,jugador->get(i)->getCartas());

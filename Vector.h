@@ -42,6 +42,8 @@ public:
 	 * post: devuelve la longitud del vector
 	 */
 	int getLongitud();
+
+	void igual(Vector<int>* valor1, Vector<int>* valor2);
 };
 
 template <class T> void Vector<T>::validarIndice(unsigned int indice){
@@ -80,6 +82,13 @@ template <class T> T Vector<T>:: get(int indice){
 
 template <class T> int Vector<T>:: getLongitud(){
 	return this->longitud;
+}
+
+template <class T> void Vector<T>:: igual(Vector<int>* valor1, Vector<int>* valor2){
+
+	valor1->set(1,valor2->get(1));
+	valor1->set(2,valor2->get(2));
+	valor1->set(3,valor2->get(3));
 }
 
 #endif /* VECTOR_H_ */

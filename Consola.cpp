@@ -202,7 +202,7 @@ int Consola::mostrarTesoros(Jugador* jugador){
 		std::cout << tesoro->getPosicion()->get(1)<<","<<tesoro->getPosicion()->get(2)<<","<<tesoro->getPosicion()->get(3)<< std::endl;;
 		i++;
 	}
-	std::cout << "Elija el numero de tesoro que quiere mover" << std::endl;
+	std::cout << "Elija el numero de tesoro que quiere mover:";
 	int numeroTesoro;
 	std::cin >> numeroTesoro;
 	return numeroTesoro;
