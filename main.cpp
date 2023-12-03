@@ -37,26 +37,9 @@ int main(){
 	while(cantidadJugadores > 1){
 
 		for (int i =1; i<= cantidadJugadores; i++){
-			cout << "JUGADOR " << i << endl;
+			cout << "JUGADOR " << jugador->get(i)->getNumeroJugador() << endl;
 
-			//mover tesoro
-			if(jugador->get(i)->getTesoros()->contarElementos() >= 1){
-				bool mueveTesoro = consola->tomaDecision("Desea mover un tesoro?");
-				if(mueveTesoro){
-					int tesoroAMover = consola->mostrarTesoros(jugadores->getJugador(i));
-					Vector<int>* posicionActual = new Vector<int>(3);
-					posicionActual->igual(posicionActual, jugador->get(i)->getTesoros()->obtener(tesoroAMover)->getPosicion());
-					Vector<int> * direccion = consola->elegirDireccion();
-					Vector<int> * posicionNueva = jugador->get(i)->getTablero()->validarMovimiento(jugador->get(i)->getTesoros()->obtener(tesoroAMover)->getPosicion(),direccion);
-					jugador->get(i)->getTesoros()->obtener(tesoroAMover)->setPosicion(posicionNueva);
-					bmp->moverTesoro(posicionActual ,posicionNueva, i);
-				}
-			}
-			else{
-				jugadores->eliminarJugador(i);
-				cantidadJugadores--;
-			}
-
+			//jugar carta
 			//el jugador puede robar cartas y elegir si usarlas, pero no tienen utilidad
 			Vector<Lista<Carta*>*>* cartas = new Vector<Lista<Carta*>*>(cantidadJugadores);
 			jugador->get(i)->robarCarta();
@@ -99,11 +82,57 @@ int main(){
 					tableroGeneral->actualizarTablero();
 
 					delete posicion;
-
-
 				}
 			}
-			//espias
+
+			//poner espia
+			bool poneEspia = consola->tomaDecision("Desea poner un espia?");
+				if(poneEspia){
+					Vector<int>* posicion = consola->pedirPosicion();
+
+					//primero chequear si hay fichas de otros jugadores
+					Casillero* casilleroOcupado = tableroGeneral->chequearPosicion(jugador->get(i)->getNumeroJugador(), posicion);
+					if(casilleroOcupado){
+						int jugadorAtacado = casilleroOcupado->getJugador();
+						if(casilleroOcupado->getFicha() == TESORO){
+							cout << "El espia encontro un tesoro del jugador ";
+						} else if (casilleroOcupado->getFicha() == ESPIA){
+							cout << "El espia encontro un espia del jugador ";
+						} else if (casilleroOcupado->getFicha() == TESORO_MINA){
+							cout << "El espia encontro un tesoro mina del juagdor ";
+						}
+						cout << jugadorAtacado << "!" << endl;
+						cout << "Sera eliminado y se inactiva la casilla" << endl;
+						tableroGeneral->deshabilitarCasillero(posicion);
+					}else{
+						jugador->get(i)->ponerEspia(posicion);
+						bmp->ponerEspia(posicion,i);
+						jugador->get(i)->getTablero()->setCasillero(posicion, ESPIA, jugador->get(i)->getNumeroJugador());
+					}
+					tableroGeneral->actualizarTablero();
+
+				}
+
+			//mover tesoro
+			if(jugador->get(i)->getTesoros()->contarElementos() >= 1){
+				bool mueveTesoro = consola->tomaDecision("Desea mover un tesoro?");
+				if(mueveTesoro){
+					int tesoroAMover = consola->mostrarTesoros(jugadores->getJugador(i));
+					Vector<int>* posicionActual = new Vector<int>(3);
+					posicionActual->igual(posicionActual, jugador->get(i)->getTesoros()->obtener(tesoroAMover)->getPosicion());
+					Vector<int> * direccion = consola->elegirDireccion();
+					Vector<int> * posicionNueva = jugador->get(i)->getTablero()->validarMovimiento(jugador->get(i)->getTesoros()->obtener(tesoroAMover)->getPosicion(),direccion);
+					jugador->get(i)->getTesoros()->obtener(tesoroAMover)->setPosicion(posicionNueva);
+					bmp->moverTesoro(posicionActual ,posicionNueva, i);
+					jugador->get(i)->getTablero()->setCasillero(posicionActual, VACIO, jugador->get(i)->getNumeroJugador());
+					jugador->get(i)->getTablero()->setCasillero(posicionNueva, TESORO, jugador->get(i)->getNumeroJugador());
+				}
+			}
+			else{
+				jugadores->eliminarJugador(i);
+				cantidadJugadores--;
+			}
+			tableroGeneral->actualizarTablero();
 
 		}
 	}
@@ -115,7 +144,9 @@ int main(){
 	delete jugadores;
 	delete consola;
 	return 0;
+
 }
+
 
 
 

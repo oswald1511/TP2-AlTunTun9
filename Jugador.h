@@ -16,6 +16,7 @@ private:
 	Lista<Tesoro *> * tesoros;
 	Lista<Carta *> * cartas;
 	Lista<TesoroMina *> * tesorosMina;
+	Lista<Vector<int>*>* espias;
 	Tablero* tablero;
 	unsigned int cantidadMaximaCartas;
 	int numeroJugador;
@@ -105,6 +106,8 @@ public:
 	 * post: devuelve el proximo tesoro mina de la lista disponible
 	 */
 	TesoroMina* getTesoroMinaDisponible();
+
+	Vector<int>* getEspia(int numeroDeEspia);
 };
 
 #endif /* JUGADOR_H_ */

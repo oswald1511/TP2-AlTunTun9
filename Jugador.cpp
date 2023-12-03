@@ -6,6 +6,7 @@ Jugador::Jugador(Vector<int>* dimensionesTablero, int cantidadTesoros, int numer
 		this->tesoros->agregar(new Tesoro());
 	}
 	this->cartas = new Lista<Carta *>();
+	this->espias = new Lista<Vector<int>*>();
 	this->cantidadMaximaCartas = CANTIDAD_MAXIMA_CARTAS;
 	this->tablero = new Tablero(dimensionesTablero);
 	this->tesorosMina = new Lista<TesoroMina*>();
@@ -39,7 +40,11 @@ int Jugador::getNumeroJugador(){
 }
 
 void Jugador::ponerEspia(Vector<int> * posicion){
+	this->espias->agregar(posicion);
+}
 
+Vector<int>* Jugador::getEspia(int numeroDeEspia){
+	return this->espias->obtener(numeroDeEspia);
 }
 
 void Jugador::moverTesoro(Vector<int> * posicionActual, Vector<int> * posicionNueva){
