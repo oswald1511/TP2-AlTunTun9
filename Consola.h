@@ -112,6 +112,8 @@ public:
 
 	Vector<int>* elegirDireccion();
 
+	void ganador(int jugador);
+
 };
 
 #endif /* CONSOLA_H_ */

@@ -69,11 +69,17 @@ int main(){
 						} else if (casilleroOcupado->getFicha() == ESPIA){
 							cout << "El tesoro mina encontro un espia del jugador ";
 						} else if (casilleroOcupado->getFicha() == TESORO_MINA){
-							cout << "El tesoro mina encontro un tesoro mina del juagdor ";
+							cout << "El tesoro mina encontro un tesoro mina del juga3"
+									"dor ";
 						}
 						cout << jugadorAtacado << "!" << endl;
 						cout << "Sera eliminado y se inactiva la casilla" << endl;
+						//tengo que saber el indice del tesoro a remover
+						int numeroDeTesoroEliminado = jugador->get(jugadorAtacado)->getTablero()->buscarIndiceDeTesoro(jugador->get(jugadorAtacado)->getTesoros(),posicion);
+						jugador->get(jugadorAtacado)->getTesoros()->remover(numeroDeTesoroEliminado);
 						tableroGeneral->deshabilitarCasillero(posicion);
+						bmp->ponerEnBlanco(posicion,i);
+						bmp->ponerEnBlanco(posicion,jugadorAtacado);
 					}else{
 						tesoroMina->setPosicion(posicion);
 						bmp->ponerTesoroMina(posicion, i);
@@ -103,7 +109,12 @@ int main(){
 						}
 						cout << jugadorAtacado << "!" << endl;
 						cout << "Sera eliminado y se inactiva la casilla" << endl;
+						//tengo que saber el indice del tesoro a remover
+						int numeroDeTesoroEliminado = jugador->get(jugadorAtacado)->getTablero()->buscarIndiceDeTesoro(jugador->get(jugadorAtacado)->getTesoros(),posicion);
+						jugador->get(jugadorAtacado)->getTesoros()->remover(numeroDeTesoroEliminado);
 						tableroGeneral->deshabilitarCasillero(posicion);
+						bmp->ponerEnBlanco(posicion,i);
+						bmp->ponerEnBlanco(posicion,jugadorAtacado);
 					}else{
 						jugador->get(i)->ponerEspia(posicion);
 						bmp->ponerEspia(posicion,i);
@@ -119,7 +130,7 @@ int main(){
 				if(mueveTesoro){
 					int tesoroAMover = consola->mostrarTesoros(jugadores->getJugador(i));
 					Vector<int>* posicionActual = new Vector<int>(3);
-					posicionActual->igual(posicionActual, jugador->get(i)->getTesoros()->obtener(tesoroAMover)->getPosicion());
+					posicionActual->igualar(posicionActual, jugador->get(i)->getTesoros()->obtener(tesoroAMover)->getPosicion());
 					Vector<int> * direccion = consola->elegirDireccion();
 					Vector<int> * posicionNueva = jugador->get(i)->getTablero()->validarMovimiento(jugador->get(i)->getTesoros()->obtener(tesoroAMover)->getPosicion(),direccion);
 					jugador->get(i)->getTesoros()->obtener(tesoroAMover)->setPosicion(posicionNueva);
@@ -136,6 +147,7 @@ int main(){
 
 		}
 	}
+	consola->ganador(jugadores->getJugador(1)->getNumeroJugador());
 	//consola->despedida();
 
 	delete bmp;

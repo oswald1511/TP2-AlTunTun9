@@ -259,3 +259,7 @@ Vector<int> * Consola::elegirDireccion(){
 	    }
 	return direccion;
 }
+
+void Consola::ganador(int jugador){
+	std::cout << "Felicidades jugador " << jugador << "!\nHaz ganado el juego!" << std::endl;
+}

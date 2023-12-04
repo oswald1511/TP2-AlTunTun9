@@ -90,3 +90,15 @@ Vector<int> * Tablero::validarMovimiento(Vector<int>* posicion, Vector<int>* dir
 	return posicion;
 }
 
+int Tablero::buscarIndiceDeTesoro(Lista<Tesoro*>* tesoros,Vector<int>* posicion){
+
+	int indice;
+	for(unsigned int i = 1; i <= tesoros->contarElementos(); i++){
+
+		if(posicion->esIgual(tesoros->obtener(i)->getPosicion(),posicion)){
+			indice = i;
+		}
+	}
+	return indice;
+}
+

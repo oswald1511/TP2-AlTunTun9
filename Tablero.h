@@ -5,6 +5,7 @@
 #include "Lista.h"
 #include "Casillero.h"
 #include "Vector.h"
+#include "Tesoro.h"
 
 class Tablero {
 private:
@@ -61,7 +62,17 @@ public:
 	 */
 	Vector<int>* getPosicionAleatoria();
 
+	/*
+	 * pre:
+	 * pos:
+	 */
 	Vector<int> * validarMovimiento(Vector<int>* posicion, Vector<int>* direccion);
+
+	/*
+	 * pre:
+	 * pos:
+	 */
+	int buscarIndiceDeTesoro(Lista<Tesoro*>* tesoros,Vector<int>* posicion);
 
 };
 

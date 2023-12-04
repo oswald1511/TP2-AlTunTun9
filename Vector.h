@@ -43,7 +43,9 @@ public:
 	 */
 	int getLongitud();
 
-	void igual(Vector<int>* valor1, Vector<int>* valor2);
+	void igualar(Vector<int>* valor1, Vector<int>* valor2);
+
+	bool esIgual(Vector<int>* valor1, Vector<int>* valor2);
 };
 
 template <class T> void Vector<T>::validarIndice(unsigned int indice){
@@ -84,11 +86,22 @@ template <class T> int Vector<T>:: getLongitud(){
 	return this->longitud;
 }
 
-template <class T> void Vector<T>:: igual(Vector<int>* valor1, Vector<int>* valor2){
+template <class T> void Vector<T>:: igualar(Vector<int>* valor1, Vector<int>* valor2){
 
-	valor1->set(1,valor2->get(1));
-	valor1->set(2,valor2->get(2));
-	valor1->set(3,valor2->get(3));
+	for (int i = 1; i <= valor1->getLongitud(); i++){
+		valor1->set(i,valor2->get(i));
+	}
+
+}
+
+template <class T> bool Vector<T>:: esIgual(Vector<int>* valor1, Vector<int>* valor2){
+	bool esIgual = true;
+	for (int i = 1; i <= valor1->getLongitud(); i++){
+		if(valor1->get(i) != valor2->get(i)){
+			esIgual = false;
+		}
+	}
+	return esIgual;
 }
 
 #endif /* VECTOR_H_ */
