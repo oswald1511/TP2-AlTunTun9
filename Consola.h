@@ -106,12 +106,20 @@ public:
 
 	/*
 	 * pre:recibe la lista de jugadores y el jugador
-	 *
+	 * pos:muestra los la posicion de cada uno de los tesoros del jugador
 	 */
 	int mostrarTesoros(Jugador* jugador);
 
+	/*
+	 * pre:
+	 * pos:le pide al jugador que elija en que direccion quiere mover el tesoro
+	 */
 	Vector<int>* elegirDireccion();
 
+	/*
+	 * pre:
+	 * pos:de un texto de felicitaciones al jugador ganador
+	 */
 	void ganador(int jugador);
 
 };

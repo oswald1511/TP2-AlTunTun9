@@ -1,10 +1,3 @@
-/*
- * TableroMaster.h
- *
- *  Created on: 10/11/2023
- *      Author: algo2
- */
-
 #ifndef TABLEROMASTER_H_
 #define TABLEROMASTER_H_
 

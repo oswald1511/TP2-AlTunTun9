@@ -69,11 +69,11 @@ int main(){
 						} else if (casilleroOcupado->getFicha() == ESPIA){
 							cout << "El tesoro mina encontro un espia del jugador ";
 						} else if (casilleroOcupado->getFicha() == TESORO_MINA){
-							cout << "El tesoro mina encontro un tesoro mina del juga3"
-									"dor ";
+							cout << "El tesoro mina encontro un tesoro mina del jugador ";
 						}
 						cout << jugadorAtacado << "!" << endl;
 						cout << "Sera eliminado y se inactiva la casilla" << endl;
+
 						//tengo que saber el indice del tesoro a remover
 						int numeroDeTesoroEliminado = jugador->get(jugadorAtacado)->getTablero()->buscarIndiceDeTesoro(jugador->get(jugadorAtacado)->getTesoros(),posicion);
 						jugador->get(jugadorAtacado)->getTesoros()->remover(numeroDeTesoroEliminado);
@@ -133,10 +133,27 @@ int main(){
 					posicionActual->igualar(posicionActual, jugador->get(i)->getTesoros()->obtener(tesoroAMover)->getPosicion());
 					Vector<int> * direccion = consola->elegirDireccion();
 					Vector<int> * posicionNueva = jugador->get(i)->getTablero()->validarMovimiento(jugador->get(i)->getTesoros()->obtener(tesoroAMover)->getPosicion(),direccion);
-					jugador->get(i)->getTesoros()->obtener(tesoroAMover)->setPosicion(posicionNueva);
-					bmp->moverTesoro(posicionActual ,posicionNueva, i);
-					jugador->get(i)->getTablero()->setCasillero(posicionActual, VACIO, jugador->get(i)->getNumeroJugador());
-					jugador->get(i)->getTablero()->setCasillero(posicionNueva, TESORO, jugador->get(i)->getNumeroJugador());
+					//primero chequear si hay fichas de otros jugadores
+					Casillero* casilleroOcupado = tableroGeneral->chequearPosicion(jugador->get(i)->getNumeroJugador(), posicionNueva);
+					if(casilleroOcupado){
+						int jugadorAtacado = casilleroOcupado->getJugador();
+						if(casilleroOcupado->getFicha() == TESORO){
+							cout << "El tesoro encontro un tesoro del jugador ";
+						} else if (casilleroOcupado->getFicha() == ESPIA){
+							cout << "El tesoro entro a la casilla con un espia del jugador ";
+						} else if (casilleroOcupado->getFicha() == TESORO_MINA){
+							cout << "El tesoro encontro un tesoro mina del jugador ";
+						}
+						cout << jugadorAtacado << "!" << endl;
+						cout << "Sera eliminado y se inactiva la casilla" << endl;
+					}
+					else{
+						jugador->get(i)->getTesoros()->obtener(tesoroAMover)->setPosicion(posicionNueva);
+						bmp->moverTesoro(posicionActual ,posicionNueva, i);
+						jugador->get(i)->getTablero()->setCasillero(posicionActual, VACIO, jugador->get(i)->getNumeroJugador());
+						jugador->get(i)->getTablero()->setCasillero(posicionNueva, TESORO, jugador->get(i)->getNumeroJugador());
+					}
+
 				}
 			}
 			else{
@@ -144,11 +161,13 @@ int main(){
 				cantidadJugadores--;
 			}
 			tableroGeneral->actualizarTablero();
-
+			delete cartas;
 		}
+
 	}
-	consola->ganador(jugadores->getJugador(1)->getNumeroJugador());
+	consola->ganador(jugadores->getJugadores()->obtener(1)->getNumeroJugador());
 	//consola->despedida();
+
 
 	delete bmp;
 	delete tableroGeneral;

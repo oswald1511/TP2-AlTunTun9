@@ -59,19 +59,23 @@ void Jugador::robarCarta(){
 }
 
 void Jugador::jugarCarta(int posicion){
-	//por ahora solo la elimino de la lista para probar el flujo
 	Carta* carta = this->cartas->obtener(posicion);
 	carta->jugarCarta();
 	delete carta;
 	this->cartas->remover(posicion);
 }
 
-void Jugador::inicializarTesoros(){
+void Jugador::inicializarTesoros(Tablero* tablero){
+
 	this->tesoros->iniciarCursor();
 	while(tesoros->avanzarCursor()){
 		Vector<int>* posicion = this->tablero->getPosicionAleatoria();
+		while(tablero->getFicha(posicion) != VACIO){
+			posicion = this->tablero->getPosicionAleatoria();
+		}
 		tesoros->obtenerCursor()->setPosicion(posicion);
 		this->tablero->setCasillero(posicion, TESORO, this->numeroJugador);
+		tablero->setCasillero(this->tablero->getCasillero(posicion));
 	}
 }
 

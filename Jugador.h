@@ -10,6 +10,7 @@
 #include "Constantes.h"
 #include "TesoroMina.h"
 
+
 class Jugador {
 private:
 
@@ -69,7 +70,7 @@ public:
 	 * pre: -
 	 * post: coloca los tesoros de cada jugador en posiciones aleatorias del tablero
 	 */
-	void inicializarTesoros();
+	void inicializarTesoros(Tablero* tablero);
 
 	/*
 	 * pre: -
@@ -107,6 +108,10 @@ public:
 	 */
 	TesoroMina* getTesoroMinaDisponible();
 
+	/*
+	 * pre:que el numero de espia sea valido
+	 * pos:devuelve la posicion del espia
+	 */
 	Vector<int>* getEspia(int numeroDeEspia);
 };
 

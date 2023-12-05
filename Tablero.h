@@ -64,15 +64,21 @@ public:
 
 	/*
 	 * pre:
-	 * pos:
+	 * pos:devuelve el vector del tesoro ya movido si es que se puede, de lo contrario dice movimiento no valido
 	 */
 	Vector<int> * validarMovimiento(Vector<int>* posicion, Vector<int>* direccion);
 
 	/*
 	 * pre:
-	 * pos:
+	 * pos:devuelve en indice de la lista donde se encuentra el tesoro con la posicion dada
 	 */
 	int buscarIndiceDeTesoro(Lista<Tesoro*>* tesoros,Vector<int>* posicion);
+
+	/*
+	 * pre:
+	 * pos:devuelve las dimensiones del tablero
+	 */
+	Vector<int>* getDimensiones();
 
 };
 

@@ -85,7 +85,7 @@ Vector<int> * Tablero::validarMovimiento(Vector<int>* posicion, Vector<int>* dir
 	    posicion->set(3,posicion->get(3)+direccion->get(3));
 	}
 	else{
-		std::cout <<"Movimiento no válido.";
+		throw "Movimiento no válido.";
 	}
 	return posicion;
 }
@@ -100,5 +100,10 @@ int Tablero::buscarIndiceDeTesoro(Lista<Tesoro*>* tesoros,Vector<int>* posicion)
 		}
 	}
 	return indice;
+}
+
+Vector<int>* Tablero::getDimensiones(){
+
+	return this->dimensiones;
 }
 

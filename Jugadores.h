@@ -26,7 +26,7 @@ public:
 	 * pre: -
 	 * post: coloca los tesoros de cada jugador en posiciones aleatorias del tablero
 	 */
-	void inicializarTesoros();
+	void inicializarTesoros(Tablero* tablero);
 
 	/*
 	 * pre: -
@@ -51,6 +51,12 @@ public:
 	 * post: devuelve la lista de jugadores
 	 */
 	Lista<Jugador*>* getJugadores();
+
+	/*
+	 * pre:-
+	 * post: tira error si dice una cantidad de tesoros mayor a la cantidad de casillas en el tablero
+	 */
+	void validarCantidadDeTesoros(int cantidadTesoros, Vector<int>* dimensiones);
 };
 
 #endif /* JUGADORES_H_ */
